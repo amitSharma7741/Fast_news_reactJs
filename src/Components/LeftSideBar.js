@@ -31,7 +31,7 @@ import React  from 'react'
 
 
 <div className="card bg-dark text-white">
-  <img src= "https://wallpaperaccess.com/full/520148.jpg" className="card-img" alt= "https://wallpaperaccess.com/full/520148.jpg" />
+  <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7eSiu7oaf19-wccPG2khL_JXpmAvCFQXWVXu9B-Bd&s" className="card-img" alt= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7eSiu7oaf19-wccPG2khL_JXpmAvCFQXWVXu9B-Bd&s" />
   <div className="card-img-overlay">
     <h5 className="card-title">Good things</h5>
     <p className="card-text" style={{
