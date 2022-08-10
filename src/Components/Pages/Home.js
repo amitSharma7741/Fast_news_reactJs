@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive'
  
 // import "./Page.css"
 import { ExternalLink } from 'react-external-link';
 
 const Home = () => {
 
-  const [inital, setInital] = useState([])
+  const [inital, setInital] = useState([]);
+  const isM_Or_L = useMediaQuery({
+    query: '(min-width: 700px)'
+  })
 
   const exapleData = async () => {
     try {
@@ -17,11 +21,17 @@ const Home = () => {
       const data = await result.json();
       // console.log(data.articles[0].title, "hello");
       setInital(data.articles)
+      console.log(data.articles[0].description.length)
     } catch (error) {
       console.log(error);
     }
-
-
+ 
+  }
+  
+  const textStyle = {
+      textAlign:"justify",
+      marginRight:"15px",
+      marginLeft:isM_Or_L ? false :"15px"
   }
 
   useEffect(() => {
@@ -35,26 +45,38 @@ const Home = () => {
         {inital.map((ite) => (
           <>
 
-            <div className="container py-3">
-              <div className="card  ">
+            <div className="container  py-3">
+              <div className="card shadow-lg  " style={{
+                borderRadius:"15px"
+              }}>
                 <div className="row">
                   <div className="col-sm-5">
                     <img
-                      className="d-block w-100"
+                      className="d-block   w-100"
                       src={ite.urlToImage}
                       alt={ite.urlToImage}
                       style={{
-                        height: "250px"
+                        height:isM_Or_L? "250px":"200px",
+                        borderRadius:isM_Or_L ?  "15px 0px 0px 15px" : "15px 15px 0px 0px"
+                    
+                      }}
+
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; 
+                        currentTarget.src="https://wallpaperaccess.com/full/520148.jpg";
                       }}
                     />
                   </div>
                   <div className="col-sm-7">
                     <div className="card-block">
-                      <h6 className="card-title mt-2 ">{ite.title}</h6>
-                      <p className='mt-3'> {ite.description}</p>
+                      <div style={textStyle} > 
+                      <h6 className="card-title mt-2 "  >{ite.title}</h6> 
+                      <hr />
+                      </div>
+                      <p className='mt-2' style={textStyle} > { ite.description }</p>
 
                       <br />
-                      <ExternalLink href={ite.url} className="btn btn-primary mb-3 btn-sm float-right" >
+                      <ExternalLink href={ite.url} className="btn btn-primary mb-3 btn-sm  " >
                         <span>Visit the site</span>
                       </ExternalLink>
  
