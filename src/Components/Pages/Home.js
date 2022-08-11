@@ -1,27 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 import { useMediaQuery } from 'react-responsive'
  
-// import "./Page.css"
+import "./Page.css" 
 import { ExternalLink } from 'react-external-link';
 
 const Home = () => {
 
   const [inital, setInital] = useState([]);
+  // const [time, setTime] = useState("");
   const isM_Or_L = useMediaQuery({
     query: '(min-width: 700px)'
   })
-
+ 
+  // "publishedAt": "2022-08-10T14:31:00Z",
+  const currentDate = new Date();
+  const currentHours = currentDate.getHours() +24;
+   
+  
   const exapleData = async () => {
     try {
-      const news_url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
+      const sourav_url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
+
+      // const api_key = process.env.REACT_APP_NEWS_API 
+      // const news_url = ` https://newsapi.org/v2/top-headlines?country=us&apikey=${api_key}` 
+
+      // const final_url = news_url ? news_url : sourav_url ; 
+
       // https://saurav.tech/NewsAPI/top-headlines/category/health/in.json
       // title description urlToImage
       // https://newsapi.org/v2/top-headlines?country=us&apiKey=66cc9417950f40308f24f5df54e1273f
-      const result = await fetch(news_url)
-      const data = await result.json();
-      // console.log(data.articles[0].title, "hello");
+       
+      const result = await fetch(sourav_url)
+      const data = await result.json(); 
+    
       setInital(data.articles)
-      console.log(data.articles[0].description.length)
+      // console.log(data.articles[0].description.length)
+       
+      // setTime(data.articles) 
+
     } catch (error) {
       console.log(error);
     }
@@ -34,9 +50,11 @@ const Home = () => {
       marginLeft:isM_Or_L ? false :"15px"
   }
 
+    
+
   useEffect(() => {
-    exapleData();
-  }, [])
+    exapleData(); 
+  }, )
 
   return (
     <>
@@ -46,17 +64,18 @@ const Home = () => {
           <>
 
             <div className="container  py-3">
-              <div className="card shadow-lg  " style={{
-                borderRadius:"15px"
-              }}>
+              <div className="card shadow-lg elementHover  "  style={{
+                borderRadius:"15px",
+                backgroundColor:"goldenrod"
+              }}    >
                 <div className="row">
-                  <div className="col-sm-5">
+                  <div className="col-sm-5"> 
                     <img
                       className="d-block   w-100"
-                      src={ite.urlToImage}
+                      src={ite.urlToImage ? ite.urlToImage:"https://userscontent2.emaze.com/images/029c3caf-415f-49dc-87c7-25784c9a3dd5/069a41887f72559753ef04f69ff54995.jpg"}
                       alt={ite.urlToImage}
                       style={{
-                        height:isM_Or_L? "250px":"200px",
+                        height:isM_Or_L? "100%":"200px",
                         borderRadius:isM_Or_L ?  "15px 0px 0px 15px" : "15px 15px 0px 0px"
                     
                       }}
@@ -70,13 +89,14 @@ const Home = () => {
                   <div className="col-sm-7">
                     <div className="card-block">
                       <div style={textStyle} > 
-                      <h6 className="card-title mt-2 "  >{ite.title}</h6> 
+                      <h6 className="card-title mt-2 "  >{ite.title ? ite.title.slice(0,70):""}</h6> 
                       <hr />
                       </div>
-                      <p className='mt-2' style={textStyle} > { ite.description }</p>
+                      <p   style={textStyle} > { ite.content ? ite.content.slice(0,100):"Description is not Avilable" } ..</p>
+                      <p> Last Update  {ite.publishedAt ? Math.abs(currentHours -  ite.publishedAt.slice(11,13)) :""} hours ago </p>
 
                       <br />
-                      <ExternalLink href={ite.url} className="btn btn-primary mb-3 btn-sm  " >
+                      <ExternalLink href={ite.url} className="btn btn-primary mb-4 btn-sm  " >
                         <span>Visit the site</span>
                       </ExternalLink>
  
@@ -98,61 +118,6 @@ const Home = () => {
 }
 
 
-
-/* 
-
-<article className="card shadow curve">
-  <div>
-    <img
-      src="https://images.unsplash.com/photo-1506202687253-52e1b29d3527?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-      alt="image"
-    />
-  </div>
-  <div>
-    <p>
-      <strong>
-        {ite.title.slice(0,30)}
-      </strong>
-    </p>
-    <span>
-      <i className="fab fa-twitter" />
-      Twitter - <time>28 min ago</time>
-    </span>
-  </div>
-</article>
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 export default Home

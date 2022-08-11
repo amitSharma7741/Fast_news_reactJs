@@ -8,14 +8,14 @@ const RightSideBar = () => {
 
     <>
       <div className="card-container">
-        <span className="pro">PRO</span>
+        <span className="pro">Targaryen</span> 
         <img
           className="round"
-          src="https://randomuser.me/api/portraits/women/79.jpg"
-          alt="user"
+          src="https://source.unsplash.com/125x125/?man"
+          alt="https://source.unsplash.com/125x125/?man"
         />
-        <h3>Ricky Park</h3>
-        <h6>New York</h6>
+        <h3>Jon Snow</h3>
+        <h6>Behind the wall</h6>
         <p>
           User interface designer and <br /> front-end developer
         </p>

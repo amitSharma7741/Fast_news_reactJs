@@ -12,10 +12,10 @@ const Navbar = () => {
             </b>
           </li>
           <li class="nav-item">
-            <Link className="nav-link text-black" to="/about">About</Link>
+            <Link className="nav-link text-black" to="/about">Something Different</Link>
           </li>
           <li class="nav-item">
-            <Link className="nav-link text-black" to="/category">Category</Link>
+            <Link className="nav-link text-black" to="/category">Entertainment</Link>
           </li>
 
         </ul>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+// import { useMediaQuery } from 'react-responsive'
 import LeftSideBar from './LeftSideBar'
 import About from './Pages/About'
 import Category from './Pages/Category'
@@ -8,14 +9,18 @@ import NoPage from './Pages/NoPage'
 import RightSideBar from './RightSideBar'
 
 const DeliveredComponents = () => {
+    // const isM_Or_L = useMediaQuery({
+    //     query: '(min-width: 700px)'
+    //   })
     return (
         <>
-            <div className="container  mt-3 text-center"  >
+        <div className=  "container mt-3 text-center" >
                 <div className="row">
-                    <div className="col-sm-3  border border-primary  ">
+                    {/* border border-primary */}
+                    <div className="  col-sm-3     ">
                         {<LeftSideBar />}
                     </div>
-                    <div className=" col-sm-6  border border-primary">
+                    <div className=" col-sm-6   ">
 
                    
 
