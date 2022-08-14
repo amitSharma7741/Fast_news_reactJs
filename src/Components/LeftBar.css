@@ -13,16 +13,17 @@
 .quiz {
   cursor: pointer;
   position: relative;
-  width: 300px;
+  width: 530px;
   letter-spacing: 2px;
   -webkit-font-smoothing: antialiased;
-  float: left;
+  /* float: left; */
   margin-top: 15px;
+  /* justify-content: center; */
   height: 400px;
   perspective: 600px;
 }
 
-.quiz__question, .quiz__answer {
+.quiz__question, .quiz__answer { 
   padding-bottom: 40px;
   border-radius: 10px;
   overflow: hidden;
@@ -43,11 +44,13 @@
 }
 
 .quiz__question img {
-  width: 300px;
+  width: 530px;
+  height:200px;
 }
 
 .quiz__answer img {
-  width: 300px;
+  width: 530px;
+  height:200px; 
 }
 
 .quiz__answer h1 {
@@ -79,18 +82,18 @@ h1 span {
   font-size: 1.4em;
   display: block;
   font-weight: bold;
-  padding-bottom: 10px;
+  
   margin-bottom: 20px;
 }
 
-h1 span i {
+/* h1 span i {
   position: relative;
   background: #af2b35;
   padding: 5px 18px;
   position: relative;
   left: -10px;
   color: white;
-}
+} */
 
 .quiz__answer {
   padding-bottom: 50px;
@@ -119,9 +122,9 @@ h1 span i {
 
  
 
-.green i {
+/* .green i {
   background: #009b3a; 
-}
+} */
 
  
 

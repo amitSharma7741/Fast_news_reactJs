@@ -7,14 +7,11 @@ import { ExternalLink } from 'react-external-link';
 const Home = () => {
 
   const [inital, setInital] = useState([]);
-  // const [time, setTime] = useState("");
+ 
   const isM_Or_L = useMediaQuery({
     query: '(min-width: 700px)'
   })
- 
-  // "publishedAt": "2022-08-10T14:31:00Z",
-  const currentDate = new Date();
-  const currentHours = currentDate.getHours() +24;
+  
    
   
   const exapleData = async () => {
@@ -64,9 +61,9 @@ const Home = () => {
           <>
 
             <div className="container  py-3">
-              <div className="card shadow-lg elementHover  "  style={{
+              <div className="card shadow elementHover  "  style={{
                 borderRadius:"15px",
-                backgroundColor:"goldenrod"
+                backgroundColor:"#eeeeee"
               }}    >
                 <div className="row">
                   <div className="col-sm-5"> 
@@ -93,7 +90,7 @@ const Home = () => {
                       <hr />
                       </div>
                       <p   style={textStyle} > { ite.content ? ite.content.slice(0,100):"Description is not Avilable" } ..</p>
-                      <p> Last Update  {ite.publishedAt ? Math.abs(currentHours -  ite.publishedAt.slice(11,13)) :""} hours ago </p>
+                      
 
                       <br />
                       <ExternalLink href={ite.url} className="btn btn-primary mb-4 btn-sm  " >

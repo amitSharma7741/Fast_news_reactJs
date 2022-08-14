@@ -1,7 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-// import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from 'react-responsive'
 import LeftSideBar from './LeftSideBar'
+import Puzzle from './Little/Puzzle'
 import About from './Pages/About'
 import Category from './Pages/Category'
 import Home from './Pages/Home'
@@ -9,9 +10,9 @@ import NoPage from './Pages/NoPage'
 import RightSideBar from './RightSideBar'
 
 const DeliveredComponents = () => {
-    // const isM_Or_L = useMediaQuery({
-    //     query: '(min-width: 700px)'
-    //   })
+    const isM_Or_L = useMediaQuery({
+        query: '(min-width: 700px)'
+      })
     return (
         <>
         <div className=  "container mt-3 text-center" >
@@ -22,7 +23,12 @@ const DeliveredComponents = () => {
                     </div>
                     <div className=" col-sm-6   ">
 
-                   
+                     <div className= {isM_Or_L ?  "container row" :"row"}>  
+                        <div > 
+                        {<Puzzle/>}
+                        </div>
+                    
+                       <div  >  
 
                         <Routes> 
                                 <Route index element={<Home />} />
@@ -31,7 +37,8 @@ const DeliveredComponents = () => {
                                 <Route path="*" element={<NoPage />} />
                             
                         </Routes>
-                  
+                       </div>
+                       </div>
                     </div>
                     <div className="col-sm-3  ">
                         {<RightSideBar/>}

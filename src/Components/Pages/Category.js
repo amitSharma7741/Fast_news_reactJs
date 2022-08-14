@@ -56,9 +56,9 @@ const Category  = () => {
           <>
 
             <div className="container  py-3">
-              <div className="card shadow-lg elementHover  "  style={{
+              <div className="card shadow elementHover  "  style={{
                 borderRadius:"15px",
-                backgroundColor:"goldenrod"
+                backgroundColor:"#eeeeee"
               }}    >
                 <div className="row">
                   <div className="col-sm-5"> 

@@ -8,6 +8,7 @@ const About = () => {
 
   const [inital, setInital] = useState([]);
   
+  
   const isM_Or_L = useMediaQuery({
     query: '(min-width: 700px)'
   })
@@ -21,10 +22,10 @@ const About = () => {
     try {
       const sourav_url = "https://inshorts.deta.dev/news?category=hatke"
       //  results => title , published_at , slug
+      
       const result = await fetch(sourav_url)
       const data = await result.json(); 
-    
-    
+     
       setInital(data.data)
       // console.log(data.articles[0].description.length)
        
@@ -49,20 +50,22 @@ const About = () => {
   }, )
 
   return (
-    <>
+    <> 
 
       <div>
-        {inital.map((ite) => (
+      
+
+        { inital.map((ite) => (
           <>
 
             <div className="container  py-3">
-              <div className="card shadow-lg elementHover  "  style={{
+              <div className="card shadow elementHover  "  style={{
                 borderRadius:"15px",
-                backgroundColor:"goldenrod"
+                backgroundColor:"#eeeeee"
               }}    >
                 <div className="row">
                   <div className="col-sm-5"> 
-                    <img
+                    <img 
                       className="d-block   w-100"
                       src=  {ite.imageUrl}
                       alt= {ite.imageUrl}
@@ -78,7 +81,7 @@ const About = () => {
                       }}
                     />
                   </div>
-                  <div className="col-sm-7">
+                  <div className="col-sm-7"> 
                     <div className="card-block">
                       <div style={textStyle} > 
                       <h6 className="card-title mt-2 "  >{ite.title }</h6> 
@@ -102,7 +105,7 @@ const About = () => {
 
 
           </>
-        ))}
+        )) }
       </div>
 
 
