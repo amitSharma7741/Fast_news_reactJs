@@ -7,10 +7,11 @@ import { FaMedapps } from 'react-icons/fa';
 import { FaPuzzlePiece } from 'react-icons/fa';
 
 const Puzzle  = () => {
+  const quest = "At 8 AM, a clock ticks 8 times. The time between first and last ticks is 35 seconds. How long does it tick at 11 Noon ?"
+  const [inital, setInital] = useState( quest)
+  const newAns = "50 Seconds"
 
-  const [inital, setInital] = useState("Capital of india")
-
-  const [ans, setAns] = useState("Delhi")
+  const [ans, setAns] = useState(newAns)
  
   
 
@@ -56,6 +57,9 @@ const Puzzle  = () => {
             alt="https://source.unsplash.com/300x200/?puzzle"
             
           />
+          <div className="card-img-overlay">
+             <h2 className="mt-5">Click the Image to get the answer</h2>
+             </div>
           <h1  > 
             <span>
               <FaPuzzlePiece aria-hidden="true" /> Question of the day  
