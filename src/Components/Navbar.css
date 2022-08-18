@@ -1,0 +1,73 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    background-color:black;
+  }
+  
+  .price-container {
+    width: 95vw;
+    position: relative;
+    left: 1.5vw;
+    
+    overflow: hidden;
+  }
+  
+  .price-box {
+    display: sticky;
+    position: relative; 
+    width: auto;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    
+    cursor: pointer;
+    animation: scrolling 30s linear infinite;
+  }
+  .price-box:hover{
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    animation-play-state: paused;
+
+  }
+  
+  @media only screen and (max-width: 600px){
+    price-box{
+
+      animation: scrolling 30s linear infinite;
+    }
+  }
+  @keyframes scrolling {
+    from {
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+    to {
+      -moz-transform: translateX(120%);
+      -webkit-transform: translateX(120%);
+      transform: translateX(120%);
+    }
+  }
+  
+  .box-styling {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    color:white;
+    margin:0px 10px;
+  }
+
+.price-span{
+  margin:0px -6px;
+}
+.up-down{
+  margin-right: -15px;
+  
+} 
+
+
+
