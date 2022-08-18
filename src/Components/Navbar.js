@@ -1,66 +1,57 @@
- 
-import { Outlet, Link } from "react-router-dom";
-import React, { useState } from 'react'
-
+import "./Navbar.css"
+import React, { useEffect, useState } from 'react'
+import { FaAngleUp } from 'react-icons/fa';
+import { FaAngleDown } from 'react-icons/fa';
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState("")
+
+  const [dim, setDim] = useState([]);
+
+  const dataChange = async () => {
+    const resul = await fetch("https://api.coincap.io/v2/assets/");
+    const data = await resul.json();
+    setDim(data.data);
+  };
+  useEffect(() => {
+    dataChange();
+  });
+
+
+
+
+
   return (
     <>
-       <nav className=" mt-3 ">
-        <ul class="nav justify-content-center">
-          <li class="nav-item ">
-           
-            {/* <Link className="nav-link  active text-black" aria-current="page" to="/">Home</Link> */}
-            <TextItems Link="/" text="Home"  btnColor="black" textColor="white" 
-            activeTab={activeTab}
-            setActiveTab={setActiveTab} />
-            
-          </li>
-          <li class="nav-item">
-            {/* <Link className="nav-link text-black" to="/about">Something Different</Link> */}
-            <TextItems Link="/about" text="World"  btnColor="black" textColor="white" 
-            activeTab={activeTab}
-            setActiveTab={setActiveTab} />
-          </li>
-          <li class="nav-item">
-            {/* <Link className="nav-link text-black" to="/category">Entertainment</Link> */}
-            <TextItems Link="/category" text="Entertainment"  btnColor="black" textColor="white" 
-            activeTab={activeTab}
-            setActiveTab={setActiveTab} />
-          </li>
+      <div className="App">
 
-        </ul>
-      </nav>  
+        <div className="price-container">
+          <div className="price-box">
+            {dim.map((ite) => (
+              <>
+                <div className="box-styling">
 
-      <Outlet />
+                  <span className="text-uppercase d-flex" style={{ textAlign: "justify" }}> {ite.symbol} </span>
+                  <span className="price-span"> {ite.priceUsd.slice(0, 8)} </span>
 
-       
- 
+                  <span className="up-down">
+                  {ite.changePercent24Hr.slice(0, 1) === "-"  ? <FaAngleDown style={{ color: "red"}}/> : <FaAngleUp style={{ color: "green" }} />}
+                  </span>
+                  <b>
+                  <span style={{color:ite.changePercent24Hr.slice(0,1) ==="-" ? "red":"green" }}>
+                  {ite.changePercent24Hr.slice(0,1) ==="-" ? ite.changePercent24Hr.slice(1,5) : ite.changePercent24Hr.slice(0,5) }%
+                  </span></b>
+
+                  <div style={{ border: "2px solid ", height: "20px" }}></div>
+                </div>
+              </>
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   )
 }
 
- 
-  
-
-const TextItems = (props) => ( 
-  <div style={{
-      backgroundColor: props.activeTab === props.text ? "black" : "white", 
-      paddingHorizontal: 16,
-      paddingVertical: 6,
-      borderRadius: 20
-       
-  }}
-      onClick={() => props.setActiveTab(props.text)} 
-  >
-
-      <Link className='nav-link' style={{
-          color: props.activeTab === props.text ? "white" : "black",
-          fontWeight: 700,
-          fontSize: 15
-      }}  to= {props.Link}>{props.text} </Link>
-  </div>
 
 
-)
+
 export default Navbar
