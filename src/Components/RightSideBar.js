@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./RightBar.css"
 import { FaFacebook, FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { ExternalLink } from 'react-external-link';
+// import Button from 'react-bootstrap/Button';
+ 
+import MyVerticallyCenteredModal from './Little/MyVerticallyCenteredModal';
 
 const RightSideBar = () => {
+  const [modalShow, setModalShow] =  useState(false);
+  const handleClick = event => {
+    event.currentTarget.style.backgroundColor = 'red';
+    event.currentTarget.style.color = 'white';
+
+    // event.currentTarget.classList.add('my-class-1', 'my-class-2');
+  };
   return (
 
     <>
@@ -20,10 +30,13 @@ const RightSideBar = () => {
           User interface designer and <br /> front-end developer
         </p>
         <div className="buttons">
-          <button className="primary">Message</button>
-          <button className="primary ghost">Following</button>
+        <button className="primary" onClick={() => setModalShow(true)}>
+         Send a message to developer
+      </button>
+
+          <button className="primary ghost mt-3  " onClick={handleClick} >give a like to our website</button>
         </div>
-        <div className="skills">
+        {/* <div className="skills">
           <h6>Skills</h6>
           <ul>
             <li>UI / UX</li>
@@ -34,9 +47,9 @@ const RightSideBar = () => {
             <li>React</li>
             <li>Node</li>
           </ul>
-        </div>
+        </div> */}
 
-        <div className="icons_container">
+        <div className="icons_container mt-5">
           <div className="icon facebook">
             <div className="tooltip">Facebook</div>
             <ExternalLink href='/'>
@@ -81,7 +94,10 @@ const RightSideBar = () => {
         </div>
       </div>
 
-
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </>
 
   )
