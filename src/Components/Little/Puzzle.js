@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react"
 
 import { useMediaQuery } from 'react-responsive'
-import "../LeftBar.css"  
+import "./Little.css"  
 import { FaMedapps } from 'react-icons/fa';
 import { FaPuzzlePiece } from 'react-icons/fa';
 
@@ -53,8 +53,8 @@ const Puzzle  = () => {
           height: isM_Or_L ? "350px" : "400px"
         }} >
           <img
-            src="https://source.unsplash.com/300x200/?puzzle"
-            alt="https://source.unsplash.com/300x200/?puzzle"
+            src="https://source.unsplash.com/300x200/?sea"
+            alt=" Puzzle"
             
           />
           <div className="card-img-overlay">
@@ -66,7 +66,7 @@ const Puzzle  = () => {
             </span> <b> {inital}</b>
           </h1>
         </div>
-        <div className="quiz__answer" style={{
+        <div className="quiz__answer " style={{
           height: isM_Or_L ? "350px" : "400px"
         }}  >
           <img
@@ -76,6 +76,9 @@ const Puzzle  = () => {
               width: isM_Or_L ? "530px" : "100%"
             }}
           />
+          {/* <div className="card-img-overlay">
+            <button className='onClick'>Click me</button>
+            </div>  */}
           <h1>
             <span>
               <FaMedapps aria-hidden="true" /> Answer
