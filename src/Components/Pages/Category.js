@@ -55,7 +55,7 @@ const Category  = () => {
         {inital.map((ite) => (
           <>
 
-            <div className="container  py-3">
+            <div className="container  py-3" key = {ite.id}>
               <div className="card shadow elementHover  "  style={{
                 borderRadius:"15px",
                 backgroundColor:"#eeeeee"
@@ -72,10 +72,7 @@ const Category  = () => {
                     
                       }}
 
-                      onError={({ currentTarget }) => {
-                        currentTarget.onerror = null; 
-                        currentTarget.src="https://wallpaperaccess.com/full/520148.jpg";
-                      }}
+                       
                     />
                   </div>
                   <div className="col-sm-7">
