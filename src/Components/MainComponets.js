@@ -4,7 +4,7 @@ import DeliveredComponents from './DeliveredComponents'
 import { FaFacebook, FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
 import Navbar from './Navbar'
 import About from './Pages/About'
-import Category from './Pages/Category'
+// import Category from './Pages/Category'
 import Allbogs from './Pages/Blogs/Allbogs';
 
 import Blog from './Pages/Blogs/Blog';
@@ -27,7 +27,7 @@ const MainComponets = () => {
           <Route path="/" element={<Navbar />}>
             <Route index element={<DeliveredComponents />} />
             <Route path="/about" element={<About />} />
-            <Route path="/category" element={<Category />} />
+            {/* <Route path="/category" element={<Category />} /> */}
             <Route path="/write" element={<AppendPost />} />
             <Route path="/blog" element={<Blog />} >
               <Route path="" element={<Allbogs />} />
