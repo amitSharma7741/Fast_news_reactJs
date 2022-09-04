@@ -20,13 +20,13 @@ const MyVerticallyCenteredModal = (props) => {
             }, (error) => {
                 console.log(error.text);
             });
-           
+        e.target.reset(); 
     };
 
     const handleClick = ()=>{
-        props.setShow(false) 
-        toast('🦄 Message sent!', {
-            position: "bottom-right",
+        // props.setShow(false) 
+        toast('🦄 Your message sent !', {
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,

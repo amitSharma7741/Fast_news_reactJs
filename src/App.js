@@ -36,7 +36,5 @@ export default function App() {
        </>
   );
 }
-
-// You can think of these components as "pages"
-// in your app.
+ 
  

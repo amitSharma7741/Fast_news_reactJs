@@ -1,53 +1,118 @@
-import React from 'react' 
-
+import React from 'react'
 import { useMediaQuery } from 'react-responsive'
-// import "../LeftBar.css"  
-import { FaHome } from 'react-icons/fa';
-import { FaFortAwesome } from 'react-icons/fa';
-import { FaTeamspeak } from 'react-icons/fa';
-import { FaArchive } from 'react-icons/fa';
-import { FaBabyCarriage } from 'react-icons/fa';
-import { Outlet, Link } from "react-router-dom";
+import { Link,Outlet  } from 'react-router-dom'
+import "./LeftBar.css"
+
+
+
+const data = [
+  {
+    id: 1,
+    name: "Home",
+    to: "/",
+    target:"_self"
+  },
+  {
+    id: 2,
+    name: "World",
+    to: "/about",
+    target:"_self"
+  },
+  {
+    id: 3,
+    name: "Entertainment",
+    to: "/category",
+    target:"_self"
+  },
+  {
+    id: 4,
+    name: "blog", 
+    to: "/blog",
+    target:"_blank"
+  },
+  { id: 5, 
+    name: "Market", 
+    to: "/market",
+    target:"_blank" 
+  }
+]
 const LeftSideBar = () => {
   const isM_Or_L = useMediaQuery({
     query: '(min-width: 700px)'
   })
   return (
     <>
-      <aside className="col-sm-3 mt-3 container flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3">
-        <div className="bg-light border rounded-3 p-1 h-100 sticky-top" style={{
-           width: isM_Or_L ? "150px" :"100%"}}>
-          <ul className="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
-            <li className="nav-item">
-              <Link to="/" className="nav-link px-2 text-truncate">
-              <FaHome aria-hidden="true" />
-                <span className="d-none d-sm-inline">Home</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="nav-link px-2 text-truncate">
-              <FaFortAwesome aria-hidden="true" />
-                <span className="d-none d-sm-inline">World</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/category" className="nav-link px-2 text-truncate"><FaTeamspeak aria-hidden="true" />
-                <span className="d-none d-sm-inline">Orders</span> </Link>
-            </li>
-            <li>
-              <Link to="/about" className="nav-link px-2 text-truncate"><FaArchive aria-hidden="true" />
-                <span className="d-none d-sm-inline">Products</span> </Link>
-            </li>
-            <li>
-              <Link to="/category" className="nav-link px-2 text-truncate"><FaBabyCarriage aria-hidden="true" />
-                <span className="d-none d-sm-inline">Customers</span> </Link>
-            </li>
-          </ul>
-        </div>
-      </aside> 
+      <div>{isM_Or_L ? <Laptop /> : <Mobile />} </div>
+     
+    </>
+  )
+}
+
+const Mobile = () => {
+  return (
+    <>
+      <div className="scrollmenu">
+       
+        {data.map((item) => {
+          return (
+            <Link to={item.to} key={item.id}>
+              <div>
+                <p>{item.name}</p> 
+              </div>
+            </Link>
+          )
+        }
+        )}
+          {/*  < a href=" /">Home</a>
+          <a href=" /">News</a>
+          <a href="  /">Contact</a>
+          <a href=" /">About</a>
+          <a href=" /">Support</a>
+          <a href=" /">Blog</a>
+          <a href=" /">Tools</a>
+          <a href=" /">Base</a>
+          <a href=" /">Custom</a>
+          <a href=" /">More</a>
+          <a href=" /">Logo</a>
+          <a href=" /">Friends</a>
+          <a href=" /">Partners</a>
+          <a href=" /">People</a>
+          <a href="/">Work</a> */}
+       
+     
+
+      </div>
       <Outlet />
     </>
   )
 }
 
+const Laptop = () => {
+  return (
+    <>
+      <div className="mt-3">
+        <ul className="d10059eb ">
+           {data.map((item) => {
+            return (
+              <li>
+                <Link to={item.to}  key={item.id} target={item.target} >
+                  <span>  
+                  {item.name}
+                  </span>
+                  </Link>
+              </li>
+            )
+          })}   
+      {/*     <li><Link to="/">Home</Link></li>
+           <li><Link to="/about">World</Link></li>
+          <li><Link to="/category">Entertainement</Link></li>
+          <li><Link to="/blog">Blog</Link></li>
+          <li><Link to="/market">Market</Link></li>    */}  
+        </ul>
+
+      </div>
+      <Outlet />
+    </>
+  )
+}
 export default LeftSideBar

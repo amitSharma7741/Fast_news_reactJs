@@ -3,7 +3,7 @@ import "./RightBar.css"
 import { FaFacebook, FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { ExternalLink } from 'react-external-link';
 // import Button from 'react-bootstrap/Button';
- 
+import logo from "./maker.gif" 
 import MyVerticallyCenteredModal from './Little/MyVerticallyCenteredModal';
 
 const RightSideBar = () => {
@@ -13,6 +13,7 @@ const RightSideBar = () => {
     event.currentTarget.style.color = 'white';
 
     // event.currentTarget.classList.add('my-class-1', 'my-class-2');
+    
   };
   return (
 
@@ -21,13 +22,14 @@ const RightSideBar = () => {
         <span className="pro">Targaryen</span> 
         <img
           className="round"
-          src="https://source.unsplash.com/125x125/?man"
-          alt="https://source.unsplash.com/125x125/?man"
+          src= {logo}
+          alt="logo"
         />
+       
         <h3>Jon Snow</h3>
         <h6>Behind the wall</h6>
         <p>
-          User interface designer and <br /> front-end developer
+            front-end developer
         </p>
         <div className="buttons">
         <button className="primary" onClick={() => setModalShow(true)}>

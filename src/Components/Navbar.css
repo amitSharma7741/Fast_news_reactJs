@@ -1,13 +1,13 @@
 .App {
     font-family: sans-serif;
     text-align: center;
-    background-color:black;
   }
   
   .price-container {
-    width: 95vw;
+    /* width: 95vw; */
+    background-color:black;
     position: relative;
-    left: 1.5vw;
+    /* left: 1.5vw; */
     
     overflow: hidden;
   }

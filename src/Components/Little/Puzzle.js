@@ -2,18 +2,18 @@ import React from 'react'
 import { useEffect, useState } from "react"
 
 import { useMediaQuery } from 'react-responsive'
-import "./Little.css"  
+import "./Little.css"
 import { FaMedapps } from 'react-icons/fa';
 import { FaPuzzlePiece } from 'react-icons/fa';
 
-const Puzzle  = () => {
+const Puzzle = () => {
   const quest = "At 8 AM, a clock ticks 8 times. The time between first and last ticks is 35 seconds. How long does it tick at 11 Noon ?"
-  const [inital, setInital] = useState( quest)
+  const [inital, setInital] = useState(quest)
   const newAns = "50 Seconds"
 
   const [ans, setAns] = useState(newAns)
- 
-  
+
+
 
   const isM_Or_L = useMediaQuery({
     query: '(min-width: 700px)'
@@ -45,29 +45,29 @@ const Puzzle  = () => {
   return (
     <>
 
-  
+
       <div className="container   quiz green" style={{
-        width: isM_Or_L ? "530px" : "100%"
+        width: isM_Or_L ? "330px" : "100%"
       }} >
         <div className="quiz__question" style={{
-          height: isM_Or_L ? "350px" : "400px"
+          height: isM_Or_L ? "390px" : "400px"
         }} >
           <img
             src="https://source.unsplash.com/300x200/?sea"
             alt=" Puzzle"
-            
+
           />
           <div className="card-img-overlay">
-             <h2 className="mt-5">Click the Image to get the answer</h2>
-             </div>
-          <h1  > 
+            <h2 className="mt-5">Click the Image to get the answer</h2>
+          </div>
+          <h1  >
             <span>
-              <FaPuzzlePiece aria-hidden="true" /> Question of the day  
+              <FaPuzzlePiece aria-hidden="true" /> Question of the day
             </span> <b> {inital}</b>
           </h1>
         </div>
         <div className="quiz__answer " style={{
-          height: isM_Or_L ? "350px" : "400px"
+          height: isM_Or_L ? "390px" : "400px"
         }}  >
           <img
             src="https://source.unsplash.com/300x200/?beach"
@@ -87,7 +87,7 @@ const Puzzle  = () => {
         </div>
       </div>
 
- 
+
     </>
   )
 }
