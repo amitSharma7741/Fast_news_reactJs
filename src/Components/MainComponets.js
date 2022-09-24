@@ -11,6 +11,9 @@ import Blog from './Pages/Blogs/Blog';
 import Post from './Pages/Blogs/Post';
 import NoPage from './Pages/NoPage';
 import AppendPost from './Pages/AppendPost/AppendPost'
+import Entertainement from './Pages/Entertainement/Entertainement';
+import EntertainePost from './Pages/Entertainement/EntertainePost';
+import EntertainementNavbar from './Pages/Entertainement/EntertainementNavbar';
 const MainComponets = () => {
   return (
     <>
@@ -27,6 +30,10 @@ const MainComponets = () => {
           <Route path="/" element={<Navbar />}>
             <Route index element={<DeliveredComponents />} />
             <Route path="/about" element={<About />} />
+            <Route path="/entertainement" element={<EntertainementNavbar/>} >
+              <Route  index element={<Entertainement />} />
+               <Route path=":bolly" element={<EntertainePost/>}/> 
+            </Route>
             {/* <Route path="/category" element={<Category />} /> */}
             <Route path="/write" element={<AppendPost />} />
             <Route path="/blog" element={<Blog />} >
@@ -104,7 +111,7 @@ const MainComponets = () => {
             >
               © 2022 Copyright:
               <a className="text-white" href="/">
-                 NEWSMON
+                NEWSMON
               </a>
             </div>
             {/* Copyright */}

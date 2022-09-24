@@ -1,31 +1,73 @@
-import React from "react";
-import { BlogsData } from "./BlogsData";
+import React, { useState, useEffect } from "react";
+// import { BlogsData } from "./BlogsData";
 import { useNavigate, Link } from "react-router-dom";
+// import useFetch from "./CustomHooks/UseFetch";
 function Allblogs() {
   const navigate = useNavigate();
+  // name, title, description, imageUrl, published
+  // const [blogs] = useFetch("http://localhost:3001/blog");
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const url = "https://blogs-data.onrender.com/blog"
+  const datar = async () => {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log(data.data);
+      setBlogs(data.data);
+      setLoading(false);
+    }
+    catch (error) {
+      console.log(error);
+      setError(error);
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    datar()
+  }, []);
+  //  render url
+
+
+
+  /* 
+  "_id": "632414848dbb59549c06ce1b",
+  "title": "a biggest title ahh sdhlhdf dfhgdf ",
+  "titleUrl": "a-bi sdhlhdf-dfhgdf-",
+  "description": "## hw   hieorf heroinee what a sisve ",
+  "imageUrl": "http ",
+  "published": "September 16, 2022",
+  "__v": 0 */
+
+  if (loading) return "Loading...";
+  if (error) return "Error!";
+
   return (
     <div className="container row row-cols-1 row-cols-md-3 g-4 ">
 
-      {BlogsData.map((product) => {
+      {blogs.map((product) => {
         return (
           <>
-            <div className="col" key={product.id}>
+            <div className="col" key={product._id}>
               <div className="card h-100" onClick={() => {
-                navigate(`/blog/${product.name}`);
-              }} > 
-                  <img src={product.image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title text-uppercase text-decoration-none ">{product.title}</h5>
-                <Link to={`/blog/${product.name}`}>
+                navigate(`/blog/${product.titleUrl}`);
+              }} >
+                <img src={product.imageUrl} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title text-uppercase text-decoration-none ">{product.title}</h5>
+                  <Link to={`/blog/${product.titleUrl}`}>
                     <p className="card-text">
-                      {product.description.substring(0, 100)}
+                      {product.description.substring(0, 60)}
                     </p>
 
-                </Link>
-                  </div>
-                  <div className="card-footer align-item-center justify-content-center">
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </div> 
+                  </Link>
+                </div>
+                <div className="card-footer align-item-center justify-content-center">
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </div>
 
 
               </div>

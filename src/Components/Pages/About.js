@@ -7,32 +7,29 @@ import { ExternalLink } from 'react-external-link';
 const About = () => {
 
   const [inital, setInital] = useState([]);
-  
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   
   const isM_Or_L = useMediaQuery({
     query: '(min-width: 700px)'
   })
  
-  // "publishedAt": "2022-08-10T14:31:00Z",
-  // const currentDate = new Date();
-  // const currentHours = currentDate.getHours() +24;
    
-  
   const exapleData = async () => {
     try {
-      const sourav_url = "https://inshorts.deta.dev/news?category=hatke"
+      const sourav_url = "https://blogs-data.onrender.com/news/world"
       //  results => title , published_at , slug
       
       const result = await fetch(sourav_url)
       const data = await result.json(); 
      
-      setInital(data.data)
-      // console.log(data.articles[0].description.length)
-       
-      // setTime(data.articles) 
+      setInital(data)
+      setLoading(false);
 
     } catch (error) {
       console.log(error);
+      setError(error);
+      setLoading(false);
     }
  
   }
@@ -49,16 +46,20 @@ const About = () => {
     exapleData(); 
   }, )
 
+
+  if (loading) return 'Loading...';
+  if (error) return 'Error!';
   return (
     <> 
 
       <div>
       
 
-        { inital.map((ite) => (
+        { inital.map((item) => {
+          return (
           <>
 
-            <div className="container  py-3" key = {ite.id}>
+            <div className="container  py-3" key = {item.title}>
               <div className="card shadow elementHover  "  style={{
                 borderRadius:"15px",
                 backgroundColor:"#eeeeee"
@@ -67,8 +68,8 @@ const About = () => {
                   <div className="col-sm-5"> 
                     <img 
                       className="d-block   w-100"
-                      src=  {ite.imageUrl}
-                      alt= {ite.imageUrl}
+                      src=  {item.imageUrl}
+                      alt= {item.title}
                       style={{
                         height:isM_Or_L? "100%":"200px",
                         borderRadius:isM_Or_L ?  "15px 0px 0px 15px" : "15px 15px 0px 0px"
@@ -84,16 +85,16 @@ const About = () => {
                   <div className="col-sm-7"> 
                     <div className="card-block">
                       <div style={textStyle} > 
-                      <h6 className="card-title mt-2 "  >{ite.title }</h6> 
+                      <h6 className="card-title mt-2 "  >{item.title }</h6> 
                       <hr />
                       </div>
-                      <p   style={textStyle} > { ite.content } ..</p>
+                      <p   style={textStyle} > { item.description } ..</p>
 {/*                       
-                      <p> Last Update  {ite.publishedAt ? Math.abs(currentHours -  ite.publishedAt.slice(11,13)) :""} hours ago </p> */}
+                      <p> Last Update  {item.publishedAt ? Math.abs(currentHours -  item.publishedAt.slice(11,13)) :""} hours ago </p> */}
 
                       <br />
-                      <ExternalLink href={ite.readMoreUrl} className="btn btn-primary mb-4 btn-sm  " >
-                        <span>Visit the site</span>
+                      <ExternalLink href={item.link} className="btn btn-primary mb-4 btn-sm  " >
+                        <span>Visit the sitem</span>
                       </ExternalLink>
  
                     </div>
@@ -105,7 +106,8 @@ const About = () => {
 
 
           </>
-        )) }
+          )
+}) }
       </div>
 
 

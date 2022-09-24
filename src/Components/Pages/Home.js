@@ -7,6 +7,8 @@ import { ExternalLink } from 'react-external-link';
 const Home = () => {
 
   const [inital, setInital] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const isM_Or_L = useMediaQuery({
     query: '(min-width: 700px)'
@@ -16,26 +18,20 @@ const Home = () => {
 
   const exapleData = async () => {
     try {
-      const sourav_url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
+      const  url = "https://blogs-data.onrender.com/news/world"
 
-      // const api_key = process.env.REACT_APP_NEWS_API 
-      // const news_url = ` https://newsapi.org/v2/top-headlines?country=us&apikey=${api_key}` 
+       
 
-      // const final_url = news_url ? news_url : sourav_url ; 
-
-      // https://saurav.tech/NewsAPI/top-headlines/category/health/in.json
-      // title description urlToImage
-      // https://newsapi.org/v2/top-headlines?country=us&apiKey=66cc9417950f40308f24f5df54e1273f
-
-      const result = await fetch(sourav_url)
+      const result = await fetch(url)
       const data = await result.json();
 
-      setInital(data.articles)
-      // console.log(data.articles[0].description.length)
-
-      // setTime(data.articles) 
+      setInital(data)
+      setLoading(false);
+       
 
     } catch (error) {
+      setError(error);
+      setLoading(false);
       console.log(error);
     }
 
@@ -53,24 +49,32 @@ const Home = () => {
     exapleData();
   })
 
+
+  if (loading) return 'Loading...';
+  if (error) return 'Error!';
+
   return (
     
     <> 
       <div>
-        {inital.map((ite) => (
+        {inital.map((item) => {
+
+        return (
+
+        
           <>
 
-            <div className="container  py-3" key={ite.title}>
+            <div className="container  py-3" key={item.title}>
               <div className="card shadow elementHover  " style={{
                 borderRadius: "15px",
                 backgroundColor: "#eeeeee"
               }}    >
                 <div className="row">
-                  <div className="col-sm-6">
+                  <div className="col-sm-4">
                     <img
                       className="d-block   w-100"
-                      src={ite.urlToImage ? ite.urlToImage : "https://userscontent2.emaze.com/images/029c3caf-415f-49dc-87c7-25784c9a3dd5/069a41887f72559753ef04f69ff54995.jpg"}
-                      alt={ite.urlToImage}
+                      src={item.imageUrl }
+                      alt={item.title}
                       style={{
                         height: isM_Or_L ? "100%" : "200px",
                         borderRadius: isM_Or_L ? "15px 0px 0px 15px" : "15px 15px 0px 0px"
@@ -80,17 +84,17 @@ const Home = () => {
 
                     />
                   </div>
-                  <div className="col-sm-6">
+                  <div className="col-sm-8">
                     <div className="card-block">
                       <div style={textStyle} >
-                        <h6 className="card-title mt-2 "  >{ite.title ? ite.title.slice(0, 70) : ""}</h6>
+                        <h6 className="card-title mt-2 "  >{item.title }</h6>
                         <hr />
                       </div>
-                      <p style={textStyle} > {ite.description ? ite.description.slice(0, 100) : "Description is not Avilable"} ..</p>
+                      <p style={textStyle} > {item.description ? item.description.split(0,70):"description not " } ..</p>
 
 
                       <br />
-                      <ExternalLink href={ite.url} className="btn btn-primary mb-4 btn-sm  " >
+                      <ExternalLink href={item.link} className="btn btn-primary mb-4 btn-sm  " >
                         <span>Visit the site</span>
                       </ExternalLink>
 
@@ -103,7 +107,8 @@ const Home = () => {
 
 
           </>
-        ))}
+          )}
+        )}
       </div>
 
 
