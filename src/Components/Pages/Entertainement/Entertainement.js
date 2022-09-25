@@ -49,8 +49,8 @@ const Entertainement = () => {
                                                 color: "black",
                                                 fontWeight: "bold",
                                                 fontSize: "20px"
-                                            }}> {item.title }   </h5>
-                                        <ExternalLink href={item.link}  >
+                                            }}> {item.title.replace(/\s+/g, ' ').trim() }   </h5>
+                                        <ExternalLink href={item.link}>  
                                         <p
                                         style={{
                                             textAlign: "justify",

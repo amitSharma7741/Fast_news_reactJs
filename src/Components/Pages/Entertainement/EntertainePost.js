@@ -60,7 +60,7 @@ const EntertainePost = () => {
                                                 color: "black",
                                                 fontWeight: "bold",
                                                 fontSize: "20px"
-                                            }}> {item.title }   </h5>
+                                            }}> {item.title.replace(/\s+/g, ' ').trim() }   </h5>
                                         <ExternalLink href={item.link}  >
                                         <p
                                         style={{

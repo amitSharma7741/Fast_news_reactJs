@@ -87,7 +87,7 @@ const Home = () => {
                   <div className="col-sm-8">
                     <div className="card-block">
                       <div style={textStyle} >
-                        <h6 className="card-title mt-2 "  >{item.title }</h6>
+                        <h6 className="card-title mt-2 "  >{item.title.replace(/\s+/g, ' ').trim() }</h6>
                         <hr />
                       </div>
                       <p style={textStyle} > {item.description ? item.description.split(0,70):"description not " } ..</p>

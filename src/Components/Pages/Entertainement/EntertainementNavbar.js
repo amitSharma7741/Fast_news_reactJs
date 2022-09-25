@@ -147,7 +147,7 @@ const EntertainementNavbar = () => {
                                         fontSize:"18px",
                                         textAlign:"justify"
                                     }}
-                                    >{item.title}</h5>
+                                    >{item.title.replace(/\s+/g, ' ').trim()}</h5>
                                      </>   
                                 )
                              })}
