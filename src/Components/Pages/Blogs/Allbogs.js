@@ -65,10 +65,10 @@ function Allblogs() {
 
                   </Link>
                 </div>
-                <div className="card-footer align-item-center justify-content-center">
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </div>
-
+                <div className="card-footer">
+                  <small className="text-muted">{product.published}</small>
+                  </div>
+                  
 
               </div>
             </div>

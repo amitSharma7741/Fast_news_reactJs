@@ -3,42 +3,37 @@ import { useParams , useNavigate } from "react-router-dom";
 // import usefetch from "../CustomHooks/UseFetchHook";
 import { FaArrowLeft } from 'react-icons/fa';
 import "./Post.css"
+import ReactMarkdown from 'react-markdown'
 function  Post() {
 
 //  const [blogs] = usefetch("http://localhost:8000/blogs");
 
   const [blogs, setBlogs] =  useState([]);
+  const { id } = useParams(); // get the id from the url
+  const navigate = useNavigate(); // navigate to another page
 
   const url = "https://blogs-data.onrender.com/blog"
   const datar = async () => {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data.data);
-      setBlogs(data.data);
+      const allBlogs = data.data;
+      const checkblog = allBlogs.filter((blog) => blog.titleUrl === id); // check if the id is equal to the titleUrl
+      setBlogs(checkblog);  
     }
     catch (error) {
       console.log(error);
     }
   }
-
+ 
   useEffect(() => {
     datar()
-  }, []);
-// name, title, description, imageUrl, published
+     // eslint-disable-next-line
+  }, [url]);
+// titleUrl, title, description, imageUrl, published
 
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const blog = blogs.find((blog) => blog.titleUrl === id);
+  
    
-   /* 
-  "_id": "632414848dbb59549c06ce1b",
-  "title": "a biggest title ahh sdhlhdf dfhgdf ",
-  "titleUrl": "a-bi sdhlhdf-dfhgdf-",
-  "description": "## hw   hieorf heroinee what a sisve ",
-  "imageUrl": "http ",
-  "published": "September 16, 2022",
-  "__v": 0 */
 
   return (
     <> 
@@ -57,11 +52,11 @@ function  Post() {
       <div className=" container">
         <img
           className="singlePostImg"
-          src="https://images.unsplash.com/photo-1629202012029-8b8b2b2b9b1a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-          alt="addImage"
+          src=  {blogs[0]?.imageUrl} // check if the blogs is not empty
+          alt= {blogs[0]?.title}
         />
         <h1 className="singlePostTitle">
-          <b> { blog.title}</b>
+          <b> {blogs[0]?.title }</b>
           <div className="singlePostEdit">
             <i className="singlePostIcon far fa-edit"></i>
             <i className="singlePostIcon far fa-trash-alt"></i>
@@ -77,10 +72,12 @@ function  Post() {
               Amit
             </b>
           </span>
-          <span>{blog.published}</span>
+          <span>{blogs[0]?.published} </span>
         </div>
-        <p className="singlePostDesc lh-lg">
-          {blog.description}  
+        <p className="singlePostDesc lh-lg"> 
+          <ReactMarkdown>
+          {blogs[0]?.description}
+          </ReactMarkdown>  
         </p>
       </div>
     </div> 
