@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { BlogsData } from "./BlogsData";
 import { useNavigate, Link } from "react-router-dom";
+import ReactMarkdown from 'react-markdown'
 // import useFetch from "./CustomHooks/UseFetch";
 function Allblogs() {
   const navigate = useNavigate();
@@ -60,7 +61,10 @@ function Allblogs() {
                   <h5 className="card-title text-uppercase text-decoration-none ">{product.title}</h5>
                   <Link to={`/blog/${product.titleUrl}`}>
                     <p className="card-text">
-                      {product.description.substring(0, 60)}
+                      <ReactMarkdown>
+                        {/* display only 100 words */}
+                        {product.description.substring(0, 100)}
+                      </ReactMarkdown> 
                     </p>
 
                   </Link>
