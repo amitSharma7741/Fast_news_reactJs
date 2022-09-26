@@ -157,7 +157,7 @@ const AppendPost = () => {
             <div
               style={{
                 height: "400px",
-                backgroundColor: "white",
+                backgroundColor: "white", 
                 color: "black",
                 padding: "10px 20px",
                 border: "1px  solid black",

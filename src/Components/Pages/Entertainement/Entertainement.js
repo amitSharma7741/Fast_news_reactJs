@@ -59,11 +59,13 @@ const Entertainement = () => {
                                         }}
                                         onMouseOver={(e) => {
                                             e.target.style.textDecoration = "underline"; 
+                                            e.target.style.color = "blue";
                                         }}
                                         onMouseOut={(e) => {
                                             e.target.style.textDecoration = "none";
+                                            e.target.style.color = "black";
                                         }}
-                                        >{item.description.split(0,70)}</p>
+                                        >{item.description.substring(0, 100)}</p>
                                         </ExternalLink>
                                         <div className="d-flex align-items-center">
                                         <h5 className="d-inline-box"

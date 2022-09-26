@@ -48,6 +48,11 @@ const EntertainementNavbar = () => {
             id:9,
             value:"Style",
             url:"style"
+        },
+        {
+            id:10,
+            value:"Photos",
+            url:"photos"
         }
     ]
      
@@ -56,7 +61,7 @@ const EntertainementNavbar = () => {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            setData(data);
+            setData(data.rightStories);
         } catch (error) {
             console.log(error);
         }
