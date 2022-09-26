@@ -61,7 +61,7 @@ const EntertainementNavbar = () => {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            setData(data.rightStories);
+            setData(data.data.rightStories);
         } catch (error) {
             console.log(error);
         }
