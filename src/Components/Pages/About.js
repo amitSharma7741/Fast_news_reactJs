@@ -76,10 +76,7 @@ const About = () => {
                     
                       }}
 
-                      // onError={({ currentTarget }) => {
-                      //   currentTarget.onerror = null; 
-                      //   currentTarget.src="https://wallpaperaccess.com/full/520148.jpg";
-                      // }}
+                     
                     />
                   </div>
                   <div className="col-sm-7"> 
@@ -88,9 +85,7 @@ const About = () => {
                       <h6 className="card-title mt-2 "  >{item.title }</h6> 
                       <hr />
                       </div>
-                      <p   style={textStyle} > { item.description } ..</p>
-{/*                       
-                      <p> Last Update  {item.publishedAt ? Math.abs(currentHours -  item.publishedAt.slice(11,13)) :""} hours ago </p> */}
+                      <p   style={textStyle} > { item.description } ..</p> 
 
                       <br />
                       <ExternalLink href={item.link} className="btn btn-primary mb-4 btn-sm  " >
