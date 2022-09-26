@@ -18,7 +18,7 @@ const Home = () => {
 
   const exapleData = async () => {
     try {
-      const  url = "https://blogs-data.onrender.com/news/world"
+      const  url = "https://blogs-data.onrender.com/news/india"
 
        
 

@@ -14,7 +14,7 @@ import AppendPost from './Pages/AppendPost/AppendPost'
 import Entertainement from './Pages/Entertainement/Entertainement';
 import EntertainePost from './Pages/Entertainement/EntertainePost';
 import EntertainementNavbar from './Pages/Entertainement/EntertainementNavbar';
-import StartingPage from './StartingPage/StartingPage'; 
+// import StartingPage from './StartingPage/StartingPage'; 
 const MainComponets = () => {
   return (
     <>
@@ -33,7 +33,7 @@ const MainComponets = () => {
             <Route path="" element={<Allbogs />} />
             <Route path=":id" element={<Post />} />
           </Route>
-          <Route path="/start" element={<StartingPage/> } />
+          {/* <Route path="/start" element={<StartingPage/> } /> */}
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
