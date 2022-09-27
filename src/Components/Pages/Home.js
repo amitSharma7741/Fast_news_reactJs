@@ -95,7 +95,7 @@ const Home = () => {
 
                       <br />
                       <ExternalLink href={item.link} className="btn btn-primary mb-4 btn-sm  " >
-                        <span>Visit the site</span>
+                        <span>Read more</span>
                       </ExternalLink>
 
                     </div>
