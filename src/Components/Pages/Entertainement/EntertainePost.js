@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { ExternalLink } from 'react-external-link';
+import "./Entertainement.css"
 const EntertainePost = () => {
 
     var { bolly } = useParams();
@@ -76,7 +77,7 @@ const EntertainePost = () => {
                                             e.target.style.textDecoration = "none";
                                             e.target.style.color = "black";
                                         }}
-                                        >{item.description.substring(0, 100)}</p>
+                                        >{item.description.substring(0, 150)}</p>
                                         </ExternalLink>
                                         <div className="d-flex align-items-center">
                                         <h5 className="d-inline-box"
