@@ -14,6 +14,9 @@ import AppendPost from './Pages/AppendPost/AppendPost'
 import Entertainement from './Pages/Entertainement/Entertainement';
 import EntertainePost from './Pages/Entertainement/EntertainePost';
 import EntertainementNavbar from './Pages/Entertainement/EntertainementNavbar';
+import NewsNavbar from './Pages/News/NewsNavbar';
+import News from './Pages/News/News';
+import NewsPost from './Pages/News/NewsPost';
 // import StartingPage from './StartingPage/StartingPage'; 
 const MainComponets = () => {
   return (
@@ -27,6 +30,10 @@ const MainComponets = () => {
           <Route path="/entertainement" element={<EntertainementNavbar />} >
             <Route index element={<Entertainement />} />
             <Route path=":bolly" element={<EntertainePost />} />
+          </Route>
+          <Route path='/news' element = {<NewsNavbar/>} >
+            <Route index element = {<News/>}/>
+            <Route path=':newsId' element ={<NewsPost/>}/>
           </Route>
           <Route path="/write" element={<AppendPost />} />
           <Route path="/blog" element={<Blog />} >
