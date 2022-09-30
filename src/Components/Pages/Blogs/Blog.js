@@ -7,7 +7,7 @@ function Blog() {
   return (
     <div  >
       <div class="container">
-        <h1 className="text-center mt-5" style={{
+        <h1 className="text-center mt-2" style={{
           color:"black",
           fontWeight:"bold",
           fontSize:"50px"
