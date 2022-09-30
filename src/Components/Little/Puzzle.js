@@ -49,17 +49,24 @@ const Puzzle = () => {
       <div className="container   quiz green" style={{
         width: isM_Or_L ? "330px" : "100%"
       }} >
-        <div className="quiz__question" style={{
+        <div className="card quiz__question" style={{
           height: isM_Or_L ? "390px" : "400px"
         }} >
           <img
             src="https://source.unsplash.com/300x200/?sea"
             alt=" Puzzle"
-
+           className='card-img'
           />
-          <div className="card-img-overlay">
-            <h2 className="mt-5">Click the Image to get the answer</h2>
-          </div>
+          {/* <div className="card-img-overlay"  style= {{
+            //  bottom: "0",
+             top: "auto", 
+              position: "absolute",
+              background: "rgba(0, 0, 0, 0.5)",
+             color: "white",
+             padding: "10px",
+             textAlign: "center"
+          }} > Click the Image to get the answer 
+          </div> */}
           <h1  >
             <span>
               <FaPuzzlePiece aria-hidden="true" /> Question of the day
