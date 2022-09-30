@@ -16,8 +16,10 @@ function Allblogs() {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data.data);
-      setBlogs(data.data);
+      // console.log(data.data);
+      // reverse the array
+      const reverseData = data.data.reverse();
+      setBlogs(reverseData); 
       setLoading(false);
     }
     catch (error) {
@@ -56,14 +58,16 @@ function Allblogs() {
               <div className="card h-100" onClick={() => {
                 navigate(`/blog/${product.titleUrl}`);
               }} >
-                <img src={product.imageUrl} className="card-img-top" alt="..." />
+                <img src={product.imageUrl} className="card-img-top" alt="..." style={{
+                  height: "200px"
+                }} />
                 <div className="card-body">
                   <h5 className="card-title text-uppercase text-decoration-none ">{product.title}</h5>
                   <Link to={`/blog/${product.titleUrl}`}>
                     <p className="card-text">
                       <ReactMarkdown>
                         {/* display only 100 words */}
-                        {product.description.substring(0, 100)}
+                        {product.description.substring(0, 200)}
                       </ReactMarkdown> 
                     </p>
 
