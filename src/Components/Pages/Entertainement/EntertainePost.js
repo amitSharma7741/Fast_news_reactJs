@@ -41,7 +41,19 @@ const EntertainePost = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container  ">
+            <h1 className="text-center  " style={{
+                    color: "red",
+                    fontSize: "40px",
+                    fontWeight: "bold",
+                    fontFamily: "cursive",
+                    textShadow: "2px 2px 2px black",
+                    // uppercase
+                    textTransform: "uppercase" ,
+                    marginTop:"-10px"
+
+
+                }}> {bolly}</h1>
                 {data.map((item) => {
                     return (
                         <div className="card mb-3  " key={item.title}>
@@ -104,10 +116,7 @@ const EntertainePost = () => {
                                         }}
                                         >  {item.published}
                                         </p>
-                                        {/* 
-                                        <ExternalLink href={item.link} className=" d-inline-block mx-3 btn btn-primary" >
-                                            <span>Visit the site</span>
-                                        </ExternalLink> */}
+                                         
                                         </div>
 
                                     </div>
