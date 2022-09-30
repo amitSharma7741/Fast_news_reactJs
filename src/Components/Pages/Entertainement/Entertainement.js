@@ -40,11 +40,11 @@ const Entertainement = () => {
         }
     }
 
-  
+
     useEffect(() => {
         newsData();
         topStoriesData();
-         
+
     }, [])
 
     if (loading) return 'Loading...';
@@ -52,25 +52,40 @@ const Entertainement = () => {
     return (
         <>
             {/* bootstrap card */}
-            <div className="mt-5">
+            <div className="mt-3">
                 {/* make a bootstrap horrizontal scroble div */}
 
                 <div className="container mb-5 ">
                     {/* flex-nowrap */}
-                    <div className="   mt-5" style ={{
-                        overflow:"auto",
-                        whiteSpace:"nowrap"
+                    <h4 classname="text-center" style={{ color: "black" }}>Top Stories</h4>
+
+                    <div className=" " style={{
+                        overflow: "auto",
+                        whiteSpace: "nowrap"
                     }}>
                         {topSto.map((item) => {
                             return (
                                 <>
-                                    <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={item.title}
-                                    style = {{
-                                        display:"inline-block"
-                                    }}
+                                    <div className="card col-12 col-sm-6 col-md-4 col-lg-3" key={item.title}
+                                        style={{
+                                            display: "inline-block"
+                                        }}
                                     >
                                         <ExternalLink href={item.link} >
-                                        <div className="card card-block"> {item.title}</div>
+                                            <img src={item.imageUrl} className="d-block card-img  w-100" alt="..."
+                                                style={{ height: "320px" }}
+                                            />
+                                            <div className="card-img-overlay"
+                                                style={{
+                                                    bottom: "0",
+                                                    top: "auto",
+                                                    background: "linear-gradient(to right,#f32c89,#730be2)",
+                                                    color: "white",
+                                                    padding: "10px",
+                                                    textAlign: "center"
+
+                                                }}
+                                            > {item.title}</div>
                                         </ExternalLink>
                                     </div>
                                 </>
@@ -80,8 +95,8 @@ const Entertainement = () => {
                 </div>
 
                 <div className="container mb-5 ">
-                    <h4 classname="text-center" style={{color:"black"}}>Image Gallery</h4>
-                    <div className="row  " style={{ border:"10px solid purple"}}>
+                    <h4 classname="text-center" style={{ color: "black" }}>Image Gallery</h4>
+                    <div className="row  " style={{ border: "10px solid purple" }}>
                         {imgGrid.map((item) => {
                             return (
                                 <>
