@@ -19,7 +19,9 @@ const Navbar = () => {
   });
 
 
-
+ const classChange = () => {
+  document.querySelector(".navbar-toggler").click();
+ }
 
 
   return (
@@ -71,41 +73,33 @@ const Navbar = () => {
               <ul className="navbar-nav  mb-2 mb-lg-0">
                 <li className="nav-item"
                 // after onclick navbar toggle close
-                onClick={() => {
-                  document.querySelector(".navbar-toggler").click();
-                }}
+                onClick= {classChange}
                 >
                   <Link className="nav-link active" aria-current="page" to="/">
                     Home
                   </Link>
                 </li>
-                <li className="nav-item" onClick={() => {
-                  document.querySelector(".navbar-toggler").click();
-                }}>
+                <li className="nav-item" onClick= {classChange}>
                   <Link className="nav-link" to="/blog">
                     Blog
                   </Link>
                 </li>
-                <li className="nav-item" onClick={() => {
-                  document.querySelector(".navbar-toggler").click();
-                }}>
+                <li className="nav-item" onClick= {classChange}>
                   <Link className="nav-link" to="/news">
                      News
                   </Link>
                 </li>
-                <li className="nav-item" onClick={() => {
-                  document.querySelector(".navbar-toggler").click();
-                }}>
-                  <Link className="nav-link" to="/entertainement">
-                    Entertainement
+                <li className="nav-item" onClick= {classChange}>
+                  <Link className="nav-link" to="/entertainment">
+                    Entertainment
                   </Link>
                 </li>
                 {/* <li className="nav-item">
                   <Link className="nav-link" to="/write">
                     write
                   </Link>
-                </li> */}
-                {/* <li className="nav-item">
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/about">
                     world 
                   </Link>

@@ -87,13 +87,12 @@ const EntertainementNavbar = () => {
                 <h1 className="text-center mt-3 animate-charcter" style={{
                     color: "black",
                     fontSize: "20px"
-                }}>Entertainement</h1>
+                }}>Entertainment</h1>
                 <ul class="text-start"
                     style={{
                         overflow: "auto",
                         whiteSpace: "nowrap",
-                        backgroundColor: "#bcbca1"
-
+                        backgroundColor: "#bcbca1" 
                     }} >
                     <li style={{
                         // float:"left",
@@ -106,9 +105,8 @@ const EntertainementNavbar = () => {
                         fontWeight: "bold",
                         cursor: "pointer",
                         display: "inline-block"
-                    }} onclick = {(e) => setUrlPath("entertainement")}
-                    >
-                        <Link to="/entertainement" className="nav-link">
+                    }} onclick = {() => setUrlPath("entertainment")}>
+                        <Link to="/entertainment" className="nav-link">
                             <FaHome />
                         </Link>
                     </li>
@@ -133,7 +131,7 @@ const EntertainementNavbar = () => {
                                 <Link style={{
                                     color: "black"
                                 }}
-                                    aria-current="page" to={`/entertainement/${item.url}`}>{item.value}</Link>
+                                    aria-current="page" to={`/entertainment/${item.url}`}>{item.value}</Link>
 
                             </li>
                         )
@@ -149,10 +147,10 @@ const EntertainementNavbar = () => {
                     <div className="text-muted" style={{ display: "inline-block", margin: "0px 10px" }}>
                         <FaGreaterThan />
                     </div>
-                    <Link to={'/entertainement'} style={{ color: "red", display: "inline-block" }} >
-                        Entertainement
+                    <Link to={'/entertainment'} style={{ color: "red", display: "inline-block" }} >
+                        Entertainment
                     </Link>
-                    {urlPath !== "entertainement" && (
+                    {urlPath !== "entertainment" && (
                         <>
                            <div className="text-muted" style={{ display: "inline-block", margin: "0px 10px" }}>
                                     <FaGreaterThan />

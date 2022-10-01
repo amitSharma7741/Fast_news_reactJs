@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import DeliveredComponents from './DeliveredComponents'
 import { FaFacebook, FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
 import Navbar from './Navbar'
-import About from './Pages/About'
+// import About from './Pages/About'
 // import Category from './Pages/Category'
 import Allbogs from './Pages/Blogs/Allbogs';
 
@@ -17,6 +17,7 @@ import EntertainementNavbar from './Pages/Entertainement/EntertainementNavbar';
 import NewsNavbar from './Pages/News/NewsNavbar';
 import News from './Pages/News/News';
 import NewsPost from './Pages/News/NewsPost';
+import Testing from './StartingPage/Testing';
 // import StartingPage from './StartingPage/StartingPage'; 
 const MainComponets = () => {
   return (
@@ -26,8 +27,8 @@ const MainComponets = () => {
       <Routes>
         <Route path="/" element={<Navbar />}> 
           <Route index element={<DeliveredComponents />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/entertainement" element={<EntertainementNavbar />} >
+          <Route path="/about" element={<Testing />} />
+          <Route path="/entertainment" element={<EntertainementNavbar />} >
             <Route index element={<Entertainement />} />
             <Route path=":bolly" element={<EntertainePost />} />
           </Route>
