@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"; 
+import Loader from "./Components/Loaders/Loader";
  
 import MainComponets from "./Components/MainComponets";
-import Spinner from "./Spinners";
+// import Spinner from "./Spinners";
   
 
 
@@ -12,7 +13,7 @@ export default function App() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    },  3000);
+    },  4000);
   }, [ ])
   
 
@@ -21,7 +22,7 @@ export default function App() {
      <> 
        <div   >
         
-       {loading ? <Spinner/> : <MainComponets/>}
+       {loading ? <Loader /> : <MainComponets/>}
       
        </div>
         
