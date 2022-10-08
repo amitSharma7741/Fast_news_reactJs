@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { FaAngleUp } from 'react-icons/fa';
 import { FaAngleDown } from 'react-icons/fa';
 import {Link,Outlet} from "react-router-dom"
+import Footer from "./Pages/Footer/Footer";
 
 //  https://api.nasa.gov/planetary/apod?api_key=mrhh2R9IjDc8S1kU8oNN44UoHiqQtXqjkpbIwE5H
 const Navbar = () => {
@@ -94,7 +95,7 @@ const Navbar = () => {
                     Entertainment
                   </Link>
                 </li>
-                {/* <li className="nav-item">
+                <li className="nav-item">
                   <Link className="nav-link" to="/write">
                     write
                   </Link>
@@ -103,7 +104,7 @@ const Navbar = () => {
                   <Link className="nav-link" to="/about">
                     world 
                   </Link>
-                </li> */}
+                </li>
                 {/* <li className="nav-item">
                   <Link className="nav-link" to="/category">
                     Entertainment 
@@ -166,8 +167,15 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-       <Outlet/>
       </div>
+      <div style={{
+           minHeight:"100vh"
+      }}>
+        <Outlet />
+      </div>
+       <div>
+        <Footer />
+       </div>
     </>
   )
 }
