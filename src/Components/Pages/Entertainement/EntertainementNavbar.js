@@ -86,7 +86,8 @@ const EntertainementNavbar = () => {
             <div class="container">
                 <h1 className="text-center mt-3 animate-charcter" style={{
                     color: "black",
-                    fontSize: "20px"
+                    fontSize: "20px",
+                    display:"block"
                 }}>Entertainment</h1>
                 <ul class="text-start"
                     style={{
@@ -104,7 +105,8 @@ const EntertainementNavbar = () => {
                         fontSize: "17px",
                         fontWeight: "bold",
                         cursor: "pointer",
-                        display: "inline-block"
+                        display: "inline-block",
+                        marginLeft: "-25px"
                     }} onclick = {() => setUrlPath("entertainment")}>
                         <Link to="/entertainment" className="nav-link">
                             <FaHome />

@@ -78,7 +78,8 @@ const NewsNavbar = () => {
             <div class="container">
                 <h1 className="text-center mt-3 animate-charcter" style={{
                     color: "black",
-                    fontSize: "20px"
+                    fontSize: "20px",
+                    display:"block"
                 }}>News</h1>
                 <ul class="text-start"
                     style={{
@@ -97,7 +98,8 @@ const NewsNavbar = () => {
                         fontSize: "17px",
                         fontWeight: "bold",
                         cursor: "pointer",
-                        display: "inline-block"
+                        display: "inline-block",
+                         marginLeft: "-25px"
                     }} onClick={() => setUrlPath("news")}
                     >
                         <Link to="/news" className="nav-link">
