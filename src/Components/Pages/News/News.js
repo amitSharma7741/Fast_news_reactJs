@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import { useNavigate, Link , Outlet} from "react-router-dom";
 import { ExternalLink } from 'react-external-link';
+import Loader from '../../Loaders/Loader';
 const News = () => {
 
   const [data , setData] = useState([])
@@ -25,7 +26,12 @@ const News = () => {
      
 }, [])
 
-if (loading) return 'Loading...';
+// use loaders here
+if (loading) {
+    return (
+        <Loader />
+    )
+} 
 if (error) return 'Error!';
 
   return (
