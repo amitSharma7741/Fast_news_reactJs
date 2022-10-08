@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 // import { useNavigate, Link , Outlet} from "react-router-dom";
 import { ExternalLink } from 'react-external-link';
+import Loader from '../../Loaders/Loader';
+import TopEntertainmentImage from '../../ReusableComponent/TopEntertainmentImage';
 import "./Entertainement.css"
 const Entertainement = () => {
     // const navigate = useNavigate();
 
     const [data, setData] = useState([]);
-    const [topSto, setTopSto] = useState([]);
+    // const [topSto, setTopSto] = useState([]);
     const [imgGrid, setImgGrid] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -30,7 +32,7 @@ const Entertainement = () => {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            setTopSto(data.data.topStories);
+            // setTopSto(data.data.topStories);
             setImgGrid(data.data.galleryImage);
             setLoading(false);
         }
@@ -46,8 +48,13 @@ const Entertainement = () => {
         topStoriesData();
 
     }, [])
-
-    if (loading) return 'Loading...';
+    // use loaders here
+    if (loading) {
+        return (
+            <Loader/>
+        )
+    }
+ 
     if (error) return 'Error!';
     return (
         <>
@@ -56,42 +63,7 @@ const Entertainement = () => {
                 {/* make a bootstrap horrizontal scroble div */}
 
                 <div className="container mb-5 ">
-                    {/* flex-nowrap */}
-                    <h4 classname="text-center" style={{ color: "black" }}>Top Stories</h4>
-
-                    <div className=" " style={{
-                        overflow: "auto",
-                        whiteSpace: "nowrap"
-                    }}>
-                        {topSto.map((item) => {
-                            return (
-                                <>
-                                    <div className="card col-12 col-sm-6 col-md-4 col-lg-3" key={item.title}
-                                        style={{
-                                            display: "inline-block"
-                                        }}
-                                    >
-                                        <ExternalLink href={item.link} >
-                                            <img src={item.imageUrl} className="d-block card-img  w-100" alt="..."
-                                                style={{ height: "320px" }}
-                                            />
-                                            <div className="card-img-overlay"
-                                                style={{
-                                                    bottom: "0",
-                                                    top: "auto",
-                                                    background: "linear-gradient(to right,#f32c89,#730be2)",
-                                                    color: "white",
-                                                    padding: "10px",
-                                                    textAlign: "center"
-
-                                                }}
-                                            > {item.title}</div>
-                                        </ExternalLink>
-                                    </div>
-                                </>
-                            )
-                        })}
-                    </div>
+                   <TopEntertainmentImage />
                 </div>
 
                 <div className="container mb-5 ">
