@@ -5,6 +5,7 @@ import "./AppendPost.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import Loader from '../../Loaders/Loader';
 const AppendPost = () => {
   const [markDown, setMarkDown] = useState('## hello markdown')
 
@@ -105,8 +106,10 @@ const AppendPost = () => {
       <div className="container mt-5 " method="post"   >
         {/*  add options and select */}
 
-
-
+          <Loader />
+        <h2 className='text-center'>
+          Write your blog
+        </h2>
         <div className="d-flex mt-3 justify-content-center mb-4 ">
 
           <input type="text"
@@ -133,6 +136,9 @@ const AppendPost = () => {
 
         <div className="row">
           <div className="col-md-6">
+            <h4 className='text-center mb-3'>
+              Readme editor
+            </h4>
             <textarea style={{
               height: "400px",
               backgroundColor: "black",
@@ -154,6 +160,9 @@ const AppendPost = () => {
 
           </div>
           <div className="col-md-6">
+            <h4 className='text-center mb-3'>
+              Preview
+            </h4>
             <div
               style={{
                 height: "400px",

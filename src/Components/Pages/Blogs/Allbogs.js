@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import { BlogsData } from "./BlogsData";
 import { useNavigate, Link } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
+import Loader from "../../Loaders/Loader";
 // import useFetch from "./CustomHooks/UseFetch";
 function Allblogs() {
   const navigate = useNavigate();
@@ -45,7 +46,11 @@ function Allblogs() {
   "published": "September 16, 2022",
   "__v": 0 */
 
-  if (loading) return "Loading...";
+  if (loading) {
+    return (
+        <Loader />
+    )
+}
   if (error) return "Error!";
 
   return (
