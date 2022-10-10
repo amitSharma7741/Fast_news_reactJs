@@ -56,31 +56,43 @@ function Allblogs() {
   return (
     <div className="container row row-cols-1 row-cols-md-3 g-4 ">
 
-      {blogs.map((product) => {
+      {blogs.map((i,product) => {
         return (
           <>
             <div className="col" key={product._id}>
+              {/* if i less than 10 than place 0 like 0i */} 
+
+            <div  style={{
+              paddingTop: "0em",
+              paddingBottom: "1em",
+              color: "rgba(0, 0, 0, 0.4)"
+            }}>0{i}</div>
               <div className="card h-100" onClick={() => {
                 navigate(`/blog/${product.titleUrl}`);
-              }} >
+              }} style={{
+                border:"0px"
+              }}>
                 <img src={product.imageUrl} className="card-img-top" alt="..." style={{
-                  height: "200px"
+                  height: "200px",
+                  borderRadius: "1em"
                 }} />
                 <div className="card-body">
-                  <h5 className="card-title text-uppercase text-decoration-none ">{product.title}</h5>
                   <Link to={`/blog/${product.titleUrl}`}>
-                    <p className="card-text">
-                      <ReactMarkdown>
-                        {/* display only 100 words */}
-                        {product.description.substring(0, 200)}
-                      </ReactMarkdown> 
-                    </p>
+                  <h5 className="card-title text-uppercase text-decoration-none " style={{
+                    color:"black"
+                  }}>{product.title}</h5>
 
                   </Link>
+                    {/* <p className="card-text"> */}
+                      <ReactMarkdown>
+                        {/* display only 100 words */}
+                        {product.description.substring(0, 100)}
+                      </ReactMarkdown> 
+                    {/* </p> */}
                 </div>
-                <div className="card-footer">
+                {/* <div className="card-footer">
                   <small className="text-muted">{product.published}</small>
-                  </div>
+                  </div> */}
                   
 
               </div>
@@ -92,58 +104,5 @@ function Allblogs() {
     </div>
   );
 }
-
-/* 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div className="card" style={{ width: "18rem" }}>
-  <img src{product.image} className="card-img-top" alt="..." />
-  <div className="card-body">
-    <h5 className="card-title">{product.title}</h5>
-    <p className="card-text">
-    {product.description.substring(0, 100)}
-    </p>
-    
-  </div>
-</div>
-
-
-*/
+ 
 export default Allblogs;
