@@ -86,7 +86,7 @@ function Allblogs() {
                     {/* <p className="card-text"> */}
                       <ReactMarkdown>
                         {/* display only 100 words */}
-                        {product.description.substring(0, 100)}
+                        {product.description?.substring(0, 100)}
                       </ReactMarkdown> 
                     {/* </p> */}
                 </div>
