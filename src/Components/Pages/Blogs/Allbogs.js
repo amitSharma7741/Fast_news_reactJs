@@ -56,7 +56,7 @@ function Allblogs() {
   return (
     <div className="container row row-cols-1 row-cols-md-3 g-4 ">
 
-      {blogs.map((i,product) => {
+      {blogs.map((product) => {
         return (
           <>
             <div className="col" key={product._id}>
@@ -66,7 +66,7 @@ function Allblogs() {
               paddingTop: "0em",
               paddingBottom: "1em",
               color: "rgba(0, 0, 0, 0.4)"
-            }}>0{i}</div>
+            }}>01</div>
               <div className="card h-100" onClick={() => {
                 navigate(`/blog/${product.titleUrl}`);
               }} style={{
