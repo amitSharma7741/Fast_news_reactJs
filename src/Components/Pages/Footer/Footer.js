@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaFacebook, FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <>
@@ -19,6 +20,34 @@ const Footer = () => {
         }}
       >
         <footer className="bg-dark text-center text-white">
+          {/* Grid container */}
+          <div className="container p-4 pb-0">
+             
+            <section className="mb-4">
+              {/* home */}
+               <Link to = {"/"} className="text-white m-2">
+                Home
+              </Link>
+              {/* blog */}
+              <Link to = {"/blog"} className="text-white m-2">
+                Blog
+              </Link>
+              {/* news */}
+              <Link to = {"/news"} className="text-white m-2">
+                News
+              </Link>
+              {/* entertainment */}
+              <Link to = {"/entertainment"} className="text-white m-2">
+                Entertainment
+              </Link>
+
+              {/* write */}
+              <Link to = {"/write"} className="text-white m-2">
+                Write
+              </Link>
+              
+            </section> 
+          </div>
           {/* Grid container */}
           <div className="container p-4 pb-0">
             {/* Section: Social media */}
