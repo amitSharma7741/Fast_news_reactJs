@@ -9,15 +9,16 @@ import Footer from "./Pages/Footer/Footer";
 const Navbar = () => {
 
   const [dim, setDim] = useState([]);
-
+  
+  const url = "https://api.coincap.io/v2/assets/";
   const dataChange = async () => {
-    const resul = await fetch("https://api.coincap.io/v2/assets/");
+    const resul = await fetch(url);
     const data = await resul.json();
     setDim(data.data);
   };
   useEffect(() => {
     dataChange();
-  });
+  }, [url]);
 
 
  const classChange = () => {
