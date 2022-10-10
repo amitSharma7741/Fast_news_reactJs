@@ -67,7 +67,7 @@ const Entertainement = () => {
                 </div>
 
                 <div className="container mb-5 ">
-                    <h4 classname="text-center" style={{ color: "black" }}>Image Gallery</h4>
+                    <h4 classname="text-center" style={{ color: "black" , display:"flex", justifyContent:"center" }}>Image Gallery</h4>
                     <div className="row  " style={{ border: "10px solid purple" }}>
                         {imgGrid.map((item) => {
                             return (

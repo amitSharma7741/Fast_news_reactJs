@@ -189,7 +189,7 @@ const EntertainementNavbar = () => {
                                             }}
                                         />
 
-                                        <h5 className="mt-2"
+                                        <h5 className="mt-2 mb-5"
                                             style={{
                                                 color: "black",
                                                 fontSize: "18px",

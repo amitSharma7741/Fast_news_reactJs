@@ -35,11 +35,11 @@ const TopEntertainmentImage = () => {
     return (
         <> 
                 {/* flex-nowrap */}
-                <h4 classname="text-center" style={{ color: "black" }}>Top Stories</h4>
+                <h4 classname="text-center" style={{ color: "black" , display:"flex", justifyContent:"center" }}>Top Stories</h4>
 
                 <div className=" " style={{
                     overflow: "auto",
-                    whiteSpace: "nowrap"
+                    whiteSpace: "nowrap" , display:"flex", justifyContent:"center"
                 }}>
                     {topSto.map((item) => {
                         return (
