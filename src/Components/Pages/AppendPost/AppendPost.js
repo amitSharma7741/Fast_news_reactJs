@@ -5,7 +5,7 @@ import "./AppendPost.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import Loader from '../../Loaders/Loader';
+ 
 const AppendPost = () => {
   const [markDown, setMarkDown] = useState('## hello markdown')
 
@@ -105,8 +105,7 @@ const AppendPost = () => {
 
       <div className="container mt-5 " method="post"   >
         {/*  add options and select */}
-
-          <Loader />
+  
         <h2 className='text-center'>
           Write your blog
         </h2>
