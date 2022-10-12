@@ -1,124 +1,122 @@
-import React from 'react'
-import { FaFacebook, FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import React from 'react' 
 import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <>
-     <div className="  mt-5"
-        style={{
-          bottom: "0",
+    
+ <footer className="text-center mt-3 text-lg-start border border-white mt-xl-5 pt-4"
+ style ={{
+  background: "cornsilk"
+ }}
+ >
+  {/* Grid container */}
+  <div className="container p-4">
+    {/*Grid row*/}
+    <div className="row">
+      {/*Grid column*/}
+      <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 className="animate-charcter text-uppercase mb-4" style = {{
+          fontSize:"40px"
+        }}>Newsmon</h5>
+         <p>
+          {/* website description */}
+          Newsmon is a news website that provides the latest news from all over the world. 
 
-          width: "100%", 
-          height: "100px",
-          color: "white",
-          textAlign: "center",
-          paddingTop: "10px",
-          fontSize: "20px",
-          fontWeight: "bold"
-
-
-        }}
-      >
-        <footer className="bg-dark text-center text-white">
-          {/* Grid container */}
-          <div className="container p-4 pb-0">
-             
-            <section className="mb-4">
-              {/* home */}
-               <Link to = {"/"} className="text-white m-2">
-                Home
-              </Link>
-              {/* blog */}
-              <Link to = {"/blog"} className="text-white m-2">
-                Blog
-              </Link>
-              {/* news */}
-              <Link to = {"/news"} className="text-white m-2">
-                News
-              </Link>
-              {/* entertainment */}
-              <Link to = {"/entertainment"} className="text-white m-2">
-                Entertainment
-              </Link>
-
-              {/* write */}
-              <Link to = {"/write"} className="text-white m-2">
-                Write
-              </Link>
-              
-            </section> 
-          </div>
-          {/* Grid container */}
-          <div className="container p-4 pb-0">
-            {/* Section: Social media */}
-            <section className="mb-4">
-              {/* Facebook */}
-              <a
-                className="btn btn-outline-light btn-floating m-1"
-                href="/"
-                role="button"
-              >
-                < FaFacebook />
-              </a>
-              {/* Twitter */}
-              <a
-                className="btn btn-outline-light btn-floating m-1"
-                href="/"
-                role="button"
-              >
-                < FaGithub />
-              </a>
-              {/* Google */}
-              <a
-                className="btn btn-outline-light btn-floating m-1"
-                href="/"
-                role="button"
-              >
-                < FaLinkedin />
-              </a>
-              {/* Instagram */}
-              <a
-                className="btn btn-outline-light btn-floating m-1"
-                href="/"
-                role="button"
-              >
-                < FaTwitter />
-              </a>
-              {/* Linkedin */}
-              <a
-                className="btn btn-outline-light btn-floating m-1"
-                href="/"
-                role="button"
-              >
-                < FaYoutube />
-              </a>
-              {/* Github */}
-              {/* <a
-                  className="btn btn-outline-light btn-floating m-1"
-                  href="/"
-                  role="button"
-                >
-                  <i className="fab fa-github" />
-                </a> */}
-            </section>
-            {/* Section: Social media */}
-          </div>
-          {/* Grid container */}
-          {/* Copyright */}
-          <div
-            className="text-center p-3"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-          >
-            © 2022 Copyright:
-            <a className="text-white" href="/">
-              NEWSMON
-            </a>
-          </div>
-          {/* Copyright */}
-        </footer>
+         </p>
       </div>
+      {/*Grid column*/}
+      {/*Grid column*/}
+      <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 className="text-uppercase mb-4">News</h5>
+        <ul className="list-unstyled">
+          <li>
+            <Link to = {"/news/world"}>
+              World
+            </Link> 
+          </li>
+          <li>
+            <Link to = {"/news/technology"}>
+              Technology
+            </Link> 
+          </li>
+          <li>
+            <Link to = {"/news/health"}>
+              Health
+            </Link> 
+          </li>
+          <li>
+            <Link to = {"/news/india"}>
+              India
+            </Link> 
+          </li>
+          <li>
+            <Link to = {"/news/crime"}>
+              Crime
+            </Link> 
+          </li>
+        </ul>
+      </div>
+      {/*Grid column*/}
+      {/*Grid column*/}
+      <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 className="text-uppercase mb-4">
+          Entertainment
+        </h5>
+        <ul className="list-unstyled">
+          <li>
+            <Link to = {"/entertainment/news"}>
+              News
+            </Link> 
+          </li>
+          <li>
+            <Link to = {"/entertainment/web-series"}>
+              Web Series
+            </Link>
+          </li>
+          <li>
+            <Link to = {"/entertainment/tv"}>
+              TV
+            </Link>
+          </li>
+          <li>
+            <Link to = {"/entertainment/south"}>
+              South
+            </Link>
+          </li>
+          <li>
+            <Link to = {"/entertainment/hollywood"}>
+              Hollywood
+            </Link>
+          </li>
+        </ul>
+      </div>
+      {/*Grid column*/}
+      {/*Grid column*/}
+      <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 className="text-uppercase mb-4">Sign up to our newsletter</h5>
+        <div className="form-outline form-white mb-4">
+          <input type="email" id="form5Example2" className="form-control" />
+          <label className="form-label" htmlFor="form5Example2">Email address</label>
+        </div>
+        <button type="submit" className="btn btn-primary btn-outline-white btn-block">Subscribe</button>
+      </div>
+      {/*Grid column*/}
+    </div>
+    {/*Grid row*/}
+  </div>
+  {/* Grid container */}
+  {/* Copyright */}
+  <div className="text-center p-3 border-top border-white">
+    © 2020 Copyright:
+    <a className="" href="/"> Newsmon</a>
+  </div>
+  {/* Copyright */}
+</footer>
     </>
   )
 }
+
+
+ 
 
 export default Footer
