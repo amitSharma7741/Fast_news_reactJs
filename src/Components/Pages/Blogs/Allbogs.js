@@ -101,10 +101,10 @@ function Allblogs() {
                     }} 
                     key={tag}
                     onClick={() => {
-                      navigate(`/blog/${tag}`);
+                      navigate(`/blog/tag/${tag}`);
                     } }
                     >
-                    <Link to={`/blog/${tag}`}>
+                    <Link to={`/blog/tag/${tag}`}>
                       #{tag}
                     </Link> </span>
                   ))}
