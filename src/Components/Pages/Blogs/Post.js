@@ -61,9 +61,9 @@ function  Post() {
              {/* add tags  */}
               {blogs[0]?.tags.map((tag) => (
                 <span className="singlePostTag"
-                onClick={() => navigate(`/blog/${tag}`)}
+                onClick={() => navigate(`/blog/tag/${tag}`)}
                 >
-                <Link to={`/blog/${tag}`}>#{tag}</Link>  
+                <Link to={`/blog/tag/${tag}`}>#{tag}</Link>  
                 </span>
               ))}
           </div>
