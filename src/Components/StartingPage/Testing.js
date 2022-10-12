@@ -13,53 +13,53 @@ const Testing = () => {
     const urlData = [
         {
             id: 1,
-            value: "movies",
+            value: "entertainment",
             url: "/entertainment"
         },
         {
             id: 2,
-            value: "technology",
+            value: "news",
             url: "/news"
         },
         {
             id: 3,
-            value: "sports",
+            value: "auto",
             url: "/news"
         },
         {
             id: 4,
-            value: "lifestyle",
-            url: "/entertainment"
-        },
-        {
-            id: 5,
-            value: "trending",
-            url: "/news/trending"
-        },
-        {
-            id: 6,
-            value: "india",
-            url: "/news/india"
-        },
-        {
-            id: 7,
-            value: "india today podcasts",
-            url: "/news"
-        },
-        {
-            id: 8,
-            value: "science",
-            url: "/news/science"
-        },
-        {
-            id: 9,
             value: "business",
             url: "/news/business"
         },
         {
-            id: 10,
-            value: "television",
+            id: 5,
+            value: "mutual funds",
+            url: "/news/crypto"
+        },
+        {
+            id: 6,
+            value: "science",
+            url: "/news/science"
+        },
+        {
+            id: 7,
+            value: "televison",
             url: "/entertainment/tv"
+        },
+        {
+            id: 8,
+            value: "movies",
+            url: "/entertainment"
+        },
+        {
+            id: 9,
+            value: "sports",
+            url: "/news"
+        },
+        {
+            id: 10,
+            value: "education",
+            url: "/news"
         },
         {
             id: 11,
@@ -68,49 +68,34 @@ const Testing = () => {
         },
         {
             id: 12,
-            value: "auto",
-            url: "/news"
+            value: "trending",
+            url: "/news/trending"
         },
         {
             id: 13,
-            value: "education today",
+            value: "offbeat",
             url: "/news"
         },
         {
             id: 14,
-            value: "cities",
+            value: "abp decodes",
             url: "/news"
         },
         {
             id: 15,
-            value: "news analysis",
-            url: "/news"
+            value: "cryptocurrency",
+            url: "/news/crypto"
         },
         {
             id: 16,
-            value: "india today insight",
+            value: "tamil nadu",
             url: "/news"
         },
         {
             id: 17,
-            value: "law",
-            url: "/news"
-        },
-        {
-            id: 18,
-            value: "crime",
-            url: "/news/crime"
-        },
-        {
-            id: 19,
-            value: "fact-check",
-            url: "/news/fact-check"
-        },
-        {
-            id: 20,
-            value: "health",
-            url: "/news/health"
-        }
+            value: "",
+            url: "/entertainment"
+        } 
     ]
 
     const dataChange = async () => {
@@ -170,9 +155,14 @@ const Testing = () => {
                                         fontSize: "20px",
                                         textTransform: "uppercase"
 
-                                    }}>{item.title}</h5>
+                                    }}> 
+                                    {/* if title value == "" then write newsmon */} 
+                                    {item.title === "" ? "NEWSMON" : item.title  }
+                                    </h5>
+                                    {/* give random image */}
+
                                     <div className="card">
-                                        <img src={item.imageUrl} className="card-img-top" alt={item.firstHead} style={{
+                                        <img src={item.imageUrl ? item.imageUrl:"https://images.unsplash.com/photo-1433838552652-f9a46b332c40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fHdhbGxwYXBlcnxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60" } className="card-img-top" alt={item.firstHead} style={{
                                             height: "250px"
                                         }} />
                                         <div className="card-body">
