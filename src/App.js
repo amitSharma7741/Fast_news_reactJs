@@ -36,7 +36,7 @@ const App = () => {
           <Route path="/blog" element={<Blog />} >
             <Route path="" element={<Allblogs />} />
             <Route path=":id" element={<Post />} />
-            <Route path=':tagVal' element = {<TagPost /> } />
+            <Route path='/tag/:tagVal' element = {<TagPost /> } />
           </Route>
           {/* <Route path="/start" element={<StartingPage/> } /> */}
           <Route path="*" element={<NoPage />} />
