@@ -32,7 +32,7 @@ function  Post() {
   }, [url]);
 // titleUrl, title, description, imageUrl, published
 
-  
+
    
 
   return (
@@ -55,11 +55,16 @@ function  Post() {
           src=  {blogs[0]?.imageUrl} // check if the blogs is not empty
           alt= {blogs[0]?.title}
         />
-        <h1 className="singlePostTitle">
+        <h1 className="singlePostTitle"> 
+          {blogs[0]?.title.replace(/\s+/g, ' ').trim()} 
           <b> {blogs[0]?.title }</b>
           <div className="singlePostEdit">
-            <i className="singlePostIcon far fa-edit"></i>
-            <i className="singlePostIcon far fa-trash-alt"></i>
+             {/* add tags  */}
+              {blogs[0]?.tags.map((tag) => (
+                <span className="singlePostTag"
+                onClick={() => navigate(`/blog/${tag}`)}
+                >#{tag}</span>
+              ))}
           </div>
         </h1>
         <div className="singlePostInfo">
@@ -75,7 +80,7 @@ function  Post() {
           <span>{blogs[0]?.published} </span>
         </div>
         <p className="singlePostDesc lh-lg"> 
-          <ReactMarkdown>
+          <ReactMarkdown >
           {blogs[0]?.description}
           </ReactMarkdown>  
         </p>
