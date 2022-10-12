@@ -27,7 +27,7 @@
   
   .singlePostEdit {
     float: right;
-    font-size: 16px;
+    font-size: 13px;
   }
   
   .singlePostIcon {
@@ -68,6 +68,14 @@
     font-weight: 600;
   }
 
+  /* .singlePostDesc img in the center */
+  .singlePostDesc img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 320px;
+  }
   h5 {
     margin: 20px 0px;
   }
