@@ -96,14 +96,14 @@ const Navbar = () => {
                     Entertainment
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" onClick= {classChange}>
                   <Link className="nav-link" to="/write">
                     write
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" onClick= {classChange}>
                   <Link className="nav-link" to="/about">
-                    world 
+                    New Home
                   </Link>
                 </li>
                 {/* <li className="nav-item">
