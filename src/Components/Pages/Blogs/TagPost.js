@@ -46,7 +46,7 @@ const TagPost = () => {
         <>
             <div className="container row row-cols-1 row-cols-md-3 g-4 ">
 
-                {data.map((product) => (
+                {data.map((product,i) => (
                     <>
                         <div className="col" key={product._id}>
                             {/* if i less than 10 than place 0 like 0i */}
@@ -55,7 +55,7 @@ const TagPost = () => {
                                 paddingTop: "0em",
                                 paddingBottom: "1em",
                                 color: "rgba(0, 0, 0, 0.4)"
-                            }}>01</div>
+                            }}>{(i+1)>=10?(i+1):`0${i+1}`}</div>
                             <div className="card h-100" onClick={() => {
                                 navigate(`/blog/${product.titleUrl}`);
                             }} style={{

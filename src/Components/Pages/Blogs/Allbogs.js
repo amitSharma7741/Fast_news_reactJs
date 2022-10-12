@@ -58,7 +58,7 @@ function Allblogs() {
   return (
     <div className="container row row-cols-1 row-cols-md-3 g-4 ">
 
-      {blogs.map((product) => (
+      {blogs.map((product,i) => (
         <>
           <div className="col" key={product._id}>
             {/* if i less than 10 than place 0 like 0i */}
@@ -67,7 +67,8 @@ function Allblogs() {
               paddingTop: "0em",
               paddingBottom: "1em",
               color: "rgba(0, 0, 0, 0.4)"
-            }}>01</div>
+            }}>{(i+1)>=10?(i+1):`0${i+1}`}</div>
+           
             <div className="card h-100" onClick={() => {
               navigate(`/blog/${product.titleUrl}`);
             } } style={{
