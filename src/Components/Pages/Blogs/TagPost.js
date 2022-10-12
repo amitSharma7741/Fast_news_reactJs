@@ -79,11 +79,13 @@ const TagPost = () => {
                                     </ReactMarkdown>
                                     {/* </p> */}
                                     {/* product also have tags array add element with # */}
-                                    <div className="d-flex  justify-content-between ">
+                                    <div className=" ">
                                         {product.tags?.map((tag) => (
                                             <span style={{
-                                                fontSize: "0.8em"
+                                                fontSize: "0.8em",
+                                                margin:"0px 10px"
                                             }}
+                                            key={tag}
                                                 onClick={() => {
                                                     navigate(`/blog/${tag}`);
                                                 }}

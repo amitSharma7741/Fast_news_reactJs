@@ -56,14 +56,15 @@ function  Post() {
           alt= {blogs[0]?.title}
         />
         <h1 className="singlePostTitle"> 
-          {blogs[0]?.title.replace(/\s+/g, ' ').trim()} 
-          <b> {blogs[0]?.title }</b>
+          {blogs[0]?.title.replace(/\s+/g, ' ').trim()}  {/* remove the extra spaces */}
           <div className="singlePostEdit">
              {/* add tags  */}
               {blogs[0]?.tags.map((tag) => (
                 <span className="singlePostTag"
                 onClick={() => navigate(`/blog/${tag}`)}
-                >#{tag}</span>
+                >
+                <Link to={`/blog/${tag}`}>#{tag}</Link>  
+                </span>
               ))}
           </div>
         </h1>
