@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import Loader from "../../Loaders/Loader";
+
+import "./Blogs_and_Post.css"
 // import useFetch from "./CustomHooks/UseFetch";
 function Allblogs() {
   const navigate = useNavigate();
@@ -108,13 +110,7 @@ function Allblogs() {
                      
                   </div>
                   {/* add a horizontal line*/}
-                  <hr className="mt-2" style={{
-                    color: "rgba(0, 0, 0, 0.4)",
-                    height: 3,
-                    backgroundColor: "rgba(0, 0, 0, 0.4)"
-
-
-                  }} />
+                  <hr className="mt-2 horrizontalLine"   />
                   
                   
 

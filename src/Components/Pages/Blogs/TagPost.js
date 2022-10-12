@@ -3,19 +3,20 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, Link, useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import Loader from '../../Loaders/Loader';
+import "./Blogs_and_Post.css"
 // import { useParams , useNavigate } from "react-router-dom";
 
 const TagPost = () => {
 
     // const { tagId } = useParams(); // get the id from the url
     //   const navigate = useNavigate(); // navigate to another page
-    const { tagId } = useParams();
+    const { tagVal } = useParams();
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const url = `https://blogs-data.onrender.com/blog/${tagId}`;
+    const url = `https://blogs-data.onrender.com/blog/${tagVal}`;
     const datar = async () => {
         try {
             const res = await fetch(url);

@@ -1,0 +1,11 @@
+
+.horrizontalLine {
+    
+    border-width: 0 0 5px;
+    border-style: solid;
+    -webkit-border-image: -webkit-gradient(linear,100% 0,0 0,from(#f32c89),to(#6006ee)) 100% 1;
+    -webkit-border-image: -webkit-linear-gradient(right,#f32c89,#6006ee) 100% 1;
+    -moz-border-image: -moz-linear-gradient(right,#f32c89,#6006ee) 100% 1;
+    -o-border-image: -o-linear-gradient(right,#f32c89,#6006ee) 100% 1;
+    border-image: linear-gradient(to right,#f32c89,#6006ee) 100% 1;
+}
