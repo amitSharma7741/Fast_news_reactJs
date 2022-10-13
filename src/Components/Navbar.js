@@ -101,9 +101,9 @@ const Navbar = () => {
                     write
                   </Link>
                 </li>
-                <li className="nav-item" onClick= {classChange}>
-                  <Link className="nav-link" to="/about">
-                    New Home
+                <li className="nav-item" onClick= {classChange}> 
+                  <Link className="  nav-link" to="/about"  >
+                    About Us
                   </Link>
                 </li>
                 {/* <li className="nav-item">
