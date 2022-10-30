@@ -101,11 +101,11 @@ const Navbar = () => {
                     write
                   </Link>
                 </li>
-                <li className="nav-item" onClick= {classChange}> 
+               {/*  <li className="nav-item" onClick= {classChange}> 
                   <Link className="  nav-link" to="/about"  >
                     About Us
                   </Link>
-                </li>
+                </li> */}
                 {/* <li className="nav-item">
                   <Link className="nav-link" to="/category">
                     Entertainment 
