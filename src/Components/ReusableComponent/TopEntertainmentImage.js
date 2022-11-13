@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import Loader from '../Loaders/Loader';
+// import Loader from '../Loaders/Loader';
 import { ExternalLink } from 'react-external-link';
+import {EntertaimentData} from "./EntertainmentData"
+
 const TopEntertainmentImage = () => {
 
-    const [topSto, setTopSto] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [topSto, setTopSto] = useState(EntertaimentData);
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
 
     const topStoriesData = async () => {
         const url = "https://blogs-data.onrender.com/bollywood";
@@ -13,11 +15,12 @@ const TopEntertainmentImage = () => {
             const response = await fetch(url);
             const data = await response.json();
             setTopSto(data.data.topStories);
-            setLoading(false);
+            // setLoading(false);
         }
         catch (error) {
-            setError(error);
-            setLoading(false);
+            console.log(error)
+            // setError(error);
+            // setLoading(false);
         }
     }
 
@@ -25,12 +28,12 @@ const TopEntertainmentImage = () => {
         topStoriesData();
     }, [])
 
-    if (loading) {
-        return (
-            <Loader />
-        )
-    }
-    if (error) return 'Error!';
+    // if (loading) {
+    //     return (
+    //         <Loader />
+    //     )
+    // }
+    // if (error) return 'Error!';
 
     return (
         <> 

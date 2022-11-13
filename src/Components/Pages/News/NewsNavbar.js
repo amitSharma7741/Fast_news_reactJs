@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { FaGreaterThan, FaHome } from "react-icons/fa";
+import { rightSideData } from "../Entertainement/RightSideData";
 const NewsNavbar = () => {
 
     const endPath = window.location.pathname.split("/").pop();
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(rightSideData);
     const [urlPath, setUrlPath] = useState(endPath);
 
     const navData = [

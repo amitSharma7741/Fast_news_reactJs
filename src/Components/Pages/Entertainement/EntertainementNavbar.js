@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { FaGreaterThan, FaHome } from "react-icons/fa";
 import "./Entertainement.css"
+import { rightSideData } from "./RightSideData";
 const EntertainementNavbar = () => {
     //  we need end path of url 
     //  like https://blogs-data.onrender.com/bollywood/news
     //  news is end path
     const endPath = window.location.pathname.split("/").pop();
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(rightSideData);
     const [urlPath, setUrlPath] = useState(endPath);
     // const [nextUrl , setNextUrl] = useState("");
     // const [homeUrl , setHomeUrl] = useState("");

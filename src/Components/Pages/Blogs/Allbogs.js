@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 // import { BlogsData } from "./BlogsData";
 import { useNavigate, Link } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
-import Loader from "../../Loaders/Loader";
-
+// import Loader from "../../Loaders/Loader";
+import { sampleBlogsData } from "./SampleBlogsData";
 import "./Blogs_and_Post.css"
 // import useFetch from "./CustomHooks/UseFetch";
 function Allblogs() {
   const navigate = useNavigate();
   // name, title, description, imageUrl, published
   // const [blogs] = useFetch("http://localhost:3001/blog");
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [blogs, setBlogs] = useState(sampleBlogsData);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
   const url = "https://blogs-data.onrender.com/blog"
   const datar = async () => {
@@ -23,12 +23,12 @@ function Allblogs() {
       // reverse the array
       const reverseData = data.data.reverse();
       setBlogs(reverseData); 
-      setLoading(false);
+      // setLoading(false);
     }
     catch (error) {
       console.log(error);
-      setError(error);
-      setLoading(false);
+      // setError(error);
+      // setLoading(false);
     }
   }
 
@@ -48,12 +48,12 @@ function Allblogs() {
   "published": "September 16, 2022",
   "__v": 0 */
 
-  if (loading) {
-    return (
-        <Loader />
-    )
-}
-  if (error) return "Error!";
+//   if (loading) {
+//     return (
+//         <Loader />
+//     )
+// }
+//   if (error) return "Error!";
 
   return (
     <div className="container row row-cols-1 row-cols-md-3 g-4 ">
@@ -83,7 +83,16 @@ function Allblogs() {
                   <h5 className="card-title text-uppercase text-decoration-none " style={{
                     color: "black",
                     textAlign:"justify"
-                  }}>{product.title.replace(/\s+/g, ' ').trim()}</h5>
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.textDecoration = "underline";
+                    e.target.style.color = "blue";
+                }}
+                onMouseOut={(e) => {
+                    e.target.style.textDecoration = "none";
+                    e.target.style.color = "black";
+                }}
+                  >{product.title.replace(/\s+/g, ' ').trim()}</h5>
 
                 </Link>
                 {/* <p className="card-text"> */}

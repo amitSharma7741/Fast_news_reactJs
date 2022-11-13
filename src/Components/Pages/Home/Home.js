@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Puzzle from '../../Little/Puzzle'; 
-import Loader from '../../Loaders/Loader';
-import TopEntertainmentImage from '../../ReusableComponent/TopEntertainmentImage';
+import { ExternalLink } from 'react-external-link';
+// import Loader from '../../Loaders/Loader';
+import TopEntertainmentImage from '../../ReusableComponent/TopEntertainmentImage'; 
+import { randomHomeData } from "./RandomHomeData" 
 
 const Home = () => {
 
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [data, setData] = useState(randomHomeData);
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(false);
     // movies , technology , sports , lifestyle , trending ,india,india today podcasts, science,business,television,world,auto,education today,cities,news analysis,india today insight,law,crime,fact-check health  general
     const urlData = [
         {
@@ -104,12 +106,12 @@ const Home = () => {
             const response = await fetch(url);
             const data = await response.json();
             setData(data);
-            setLoading(false);
+            // setLoading(false);
         }
         catch (error) {
             console.log(error);
-            setError(true);
-            setLoading(false);
+            // setError(true);
+            // setLoading(false);
         }
     }
 
@@ -117,12 +119,12 @@ const Home = () => {
         dataChange();
     }, []);
 
-    if (loading) {
-        return (
-            <Loader />
-        )
-    } 
-    if (error) return 'Error!';
+    // if (loading) {
+    //     return (
+    //         <Loader />
+    //     )
+    // } 
+    // if (error) return 'Error!';
 
     /* title,
                       imageUrl,
@@ -166,7 +168,7 @@ const Home = () => {
                                             height: "250px"
                                         }} />
                                         <div className="card-body">
-                                            <Link to={item.firstHeadLink} className="card-title">
+                                            <ExternalLink href={item.firstHeadLink} className="card-title">
                                                 <h5 className="card-title text-start"
                                                     style={{
                                                         textAlign: "justify",
@@ -176,8 +178,16 @@ const Home = () => {
                                                         lineHeight: "24px"
 
                                                     }}
+                                                    onMouseOver={(e) => {
+                                                        e.target.style.textDecoration = "underline";
+                                                        e.target.style.color = "blue";
+                                                    }}
+                                                    onMouseOut={(e) => {
+                                                        e.target.style.textDecoration = "none";
+                                                        e.target.style.color = "black";
+                                                    }}
                                                 >{item.firstHead}</h5>
-                                            </Link>
+                                            </ExternalLink>
                                             {/* a horrizontal line */}
                                             <hr style={{
                                                 color: "black",
@@ -185,7 +195,7 @@ const Home = () => {
                                                 height: 1,
                                                 borderColor: "#000000"
                                             }} />
-                                            <Link to={item.secondTitle1Link}  >
+                                            <ExternalLink href={item.secondTitle1Link}  >
 
                                                 <p className="card-text" style={{
                                                     color: "black",
@@ -193,26 +203,41 @@ const Home = () => {
                                                     lineHeight: "20px",
                                                     textAlign: "justify",
                                                     // padding:"0px"
-                                                    listStyleType: "square"
-
-
-                                                }}>{item.secondTitle}</p>
-                                            </Link>
+                                                    listStyleType: "square" 
+                                                }}
+                                                onMouseOver={(e) => {
+                                                    e.target.style.textDecoration = "underline";
+                                                    e.target.style.color = "blue";
+                                                }}
+                                                onMouseOut={(e) => {
+                                                    e.target.style.textDecoration = "none";
+                                                    e.target.style.color = "black";
+                                                }}
+                                                >{item.secondTitle}</p>
+                                            </ExternalLink>
                                             <hr style={{
                                                 color: "black",
                                                 backgroundColor: "#ddd",
                                                 height: 1,
                                                 borderColor: "#000000"
                                             }} />
-                                            <Link to={item.thirdTitle1Link}  >
+                                            <ExternalLink href={item.thirdTitle1Link}  >
                                                 <p className="card-text" style={{
                                                     color: "black",
                                                     fontWeight: "bold",
                                                     textAlign: "justify",
-                                                    lineHeight: "20px"
-
-                                                }}>{item.thirdTitle}</p>
-                                            </Link>
+                                                    lineHeight: "20px" 
+                                                }}
+                                                onMouseOver={(e) => {
+                                                    e.target.style.textDecoration = "underline";
+                                                    e.target.style.color = "blue";
+                                                }}
+                                                onMouseOut={(e) => {
+                                                    e.target.style.textDecoration = "none";
+                                                    e.target.style.color = "black";
+                                                }}
+                                                >{item.thirdTitle}</p>
+                                            </ExternalLink>
                                             <div>
                                                 {/* filter urldata with title */}
                                                 {/* lowecase any string */}
@@ -225,7 +250,8 @@ const Home = () => {
                                                             color: "white",
                                                             fontWeight: "bold",
                                                             fontSize: "14px",
-                                                            borderRadius: "10px"
+                                                            borderRadius: "10px",
+                                                            marginTop:"15px"
                                                         }}>Read More</button></Link>
                                                     )
                                                 })}

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 // import { useNavigate, Link , Outlet} from "react-router-dom";
 import { ExternalLink } from 'react-external-link';
-import Loader from '../../Loaders/Loader';
+// import Loader from '../../Loaders/Loader';
+import { SampleNewsData } from './SampleNewsData';
 const News = () => {
 
-  const [data , setData] = useState([])
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [data , setData] = useState(SampleNewsData)
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
 
   const newsData = async () => {
     const url = "https://blogs-data.onrender.com/news/world";
@@ -14,11 +15,12 @@ const News = () => {
       const response = await fetch(url);
       const data = await response.json();
       setData(data);
-      setLoading(false);
+    //   setLoading(false);
     }
     catch (error) {
-      setError(error);
-      setLoading(false);
+        console.log(error);
+    //   setError(error);
+    //   setLoading(false);
     }
   }
   useEffect(() => {
@@ -27,12 +29,12 @@ const News = () => {
 }, [])
 
 // use loaders here
-if (loading) {
-    return (
-        <Loader />
-    )
-} 
-if (error) return 'Error!';
+// if (loading) {
+//     return (
+//         <Loader />
+//     )
+// } 
+// if (error) return 'Error!';
 
   return (
     <>

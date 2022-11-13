@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
 // import { useNavigate, Link , Outlet} from "react-router-dom";
 import { ExternalLink } from 'react-external-link';
-import Loader from '../../Loaders/Loader';
+// import Loader from '../../Loaders/Loader';
 import TopEntertainmentImage from '../../ReusableComponent/TopEntertainmentImage';
 import "./Entertainement.css"
+import {EntertainmentNewsdata} from "./EntertaimentNewsData"
+import {galleryImageData}  from "./GalleryImageData"
 const Entertainement = () => {
     // const navigate = useNavigate();
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(EntertainmentNewsdata);
     // const [topSto, setTopSto] = useState([]);
-    const [imgGrid, setImgGrid] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [imgGrid, setImgGrid] = useState(galleryImageData);
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
 
     const newsData = async () => {
         const url = "https://blogs-data.onrender.com/bollywood/news";
@@ -19,11 +21,12 @@ const Entertainement = () => {
             const response = await fetch(url);
             const data = await response.json();
             setData(data);
-            setLoading(false);
+            // setLoading(false);
         }
         catch (error) {
-            setError(error);
-            setLoading(false);
+            console.log(error)
+            // setError(error);
+            // setLoading(false);
         }
 
     }
@@ -34,11 +37,12 @@ const Entertainement = () => {
             const data = await response.json();
             // setTopSto(data.data.topStories);
             setImgGrid(data.data.galleryImage);
-            setLoading(false);
+            // setLoading(false);
         }
         catch (error) {
-            setError(error);
-            setLoading(false);
+            console.log(error);
+            // setError(error);
+            // setLoading(false);
         }
     }
 
@@ -49,13 +53,13 @@ const Entertainement = () => {
 
     }, [])
     // use loaders here
-    if (loading) {
-        return (
-            <Loader/>
-        )
-    }
+    // if (loading) {
+    //     return (
+    //         <Loader/>
+    //     )
+    // }
  
-    if (error) return 'Error!';
+    // if (error) return 'Error!';
     return (
         <>
             {/* bootstrap card */}
