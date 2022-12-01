@@ -53,7 +53,7 @@ const Puzzle = () => {
           height: isM_Or_L ? "390px" : "400px"
         }} >
           <img
-            src="https://source.unsplash.com/300x200/?sea"
+            src="https://images.pexels.com/photos/54101/magic-cube-cube-puzzle-play-54101.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt=" Puzzle"
            className='card-img'
           />
@@ -77,7 +77,7 @@ const Puzzle = () => {
           height: isM_Or_L ? "390px" : "400px"
         }}  >
           <img
-            src="https://source.unsplash.com/300x200/?beach"
+            src="https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="https://source.unsplash.com/300x200/?beach"
             style={{
               width: isM_Or_L ? "530px" : "100%"
