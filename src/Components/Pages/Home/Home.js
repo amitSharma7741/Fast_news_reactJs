@@ -5,6 +5,7 @@ import { ExternalLink } from 'react-external-link';
 // import Loader from '../../Loaders/Loader';
 import TopEntertainmentImage from '../../ReusableComponent/TopEntertainmentImage'; 
 import { randomHomeData } from "./RandomHomeData" 
+import OverlayDiv from '../../Little/OverlayDiv';
 
 const Home = () => {
 
@@ -267,6 +268,7 @@ const Home = () => {
                     })}
                 </div>
             </div>
+            <OverlayDiv url= "https://news.abplive.com/" name = "abp-live" />
         </>
     )
 }

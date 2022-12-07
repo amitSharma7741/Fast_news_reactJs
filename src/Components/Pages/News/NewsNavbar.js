@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { FaGreaterThan, FaHome } from "react-icons/fa";
 import { rightSideData } from "../Entertainement/RightSideData";
+import OverlayDiv from "../../Little/OverlayDiv";
 const NewsNavbar = () => {
 
     const endPath = window.location.pathname.split("/").pop();
@@ -200,6 +201,7 @@ const NewsNavbar = () => {
                     </div>
                 </div>
             </div>
+            <OverlayDiv url = "https://www.indiatoday.in/" name = "India-today" />
         </>
     )
 }

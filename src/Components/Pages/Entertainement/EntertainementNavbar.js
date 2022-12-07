@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import { FaGreaterThan, FaHome } from "react-icons/fa";
 import "./Entertainement.css"
 import { rightSideData } from "./RightSideData";
+import OverlayDiv from "../../Little/OverlayDiv";
 const EntertainementNavbar = () => {
     //  we need end path of url 
     //  like https://blogs-data.onrender.com/bollywood/news
@@ -205,6 +206,8 @@ const EntertainementNavbar = () => {
                     </div>
                 </div>
             </div>
+
+            <OverlayDiv url="https://www.bollywoodlife.com/"  name = "bollywoodlife.com" />
         </>
     )
 }
