@@ -1,5 +1,5 @@
  
- <img src= "./src/Components/assets/Screenshot.png"  alt="home page of newsmon"/>
+ <img src= "https://i.ibb.co/18rbV70/Screenshot.png"  alt="home page of newsmon"/>
 
 # [Newsmon](https://newsmon.netlify.app/)
 
