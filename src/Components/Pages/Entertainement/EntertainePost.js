@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { ExternalLink } from 'react-external-link';
 import "./Entertainement.css"
+import ReactGA from 'react-ga';
 const EntertainePost = () => {
 
     var { bolly } = useParams();
@@ -27,6 +28,7 @@ const EntertainePost = () => {
     // call the datar function
     useEffect(() => {
         datar();
+        ReactGA.pageview(window.location.pathname + window.location.search);
         // eslint-disable-next-line
     }, [bollyUrl]);
 

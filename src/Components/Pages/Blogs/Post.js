@@ -4,6 +4,7 @@ import { useParams , useNavigate, Link } from "react-router-dom";
 import { FaArrowLeft } from 'react-icons/fa';
 import "./Post.css"
 import ReactMarkdown from 'react-markdown'
+import ReactGA from 'react-ga';
 function  Post() {
 
 //  const [blogs] = usefetch("http://localhost:8000/blogs");
@@ -28,6 +29,7 @@ function  Post() {
  
   useEffect(() => {
     datar()
+    ReactGA.pageview(window.location.pathname + window.location.search);
      // eslint-disable-next-line
   }, [url]);
 // titleUrl, title, description, imageUrl, published

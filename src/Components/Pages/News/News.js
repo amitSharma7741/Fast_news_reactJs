@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { ExternalLink } from 'react-external-link';
 // import Loader from '../../Loaders/Loader';
 import { SampleNewsData } from './SampleNewsData';
+import ReactGA from 'react-ga';
 const News = () => {
 
   const [data , setData] = useState(SampleNewsData)
@@ -25,6 +26,7 @@ const News = () => {
   }
   useEffect(() => {
     newsData(); 
+    ReactGA.pageview(window.location.pathname + window.location.search);
      
 }, [])
 

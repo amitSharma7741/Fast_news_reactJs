@@ -6,6 +6,7 @@ import TopEntertainmentImage from '../../ReusableComponent/TopEntertainmentImage
 import "./Entertainement.css"
 import {EntertainmentNewsdata} from "./EntertaimentNewsData"
 import {galleryImageData}  from "./GalleryImageData"
+import ReactGA from 'react-ga';
 const Entertainement = () => {
     // const navigate = useNavigate();
 
@@ -50,6 +51,7 @@ const Entertainement = () => {
     useEffect(() => {
         newsData();
         topStoriesData();
+        ReactGA.pageview(window.location.pathname + window.location.search);
 
     }, [])
     // use loaders here

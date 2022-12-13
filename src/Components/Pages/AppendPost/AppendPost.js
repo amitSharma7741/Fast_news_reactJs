@@ -1,10 +1,11 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 // import { BlogsData } from '../Blogs/BlogsData'
 import ReactMarkdown from 'react-markdown'
 import "./AppendPost.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import ReactGA from 'react-ga';
  
 const AppendPost = () => {
   const [markDown, setMarkDown] = useState('## hello markdown')
@@ -99,6 +100,9 @@ const AppendPost = () => {
   }
 
 
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, [])
   return (
     <>
 
