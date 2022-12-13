@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 // import Loader from "../../Loaders/Loader";
 import { sampleBlogsData } from "./SampleBlogsData";
 import "./Blogs_and_Post.css"
+import ReactGA from 'react-ga';
 // import useFetch from "./CustomHooks/UseFetch";
 function Allblogs() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ function Allblogs() {
 
   useEffect(() => {
     datar()
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
   //  render url
 
@@ -71,6 +73,10 @@ function Allblogs() {
            
             <div className="card h-100" onClick={() => {
               navigate(`/blog/${product.titleUrl}`);
+              ReactGA.event({
+                category: product.titleUrl,
+                action: "Clicked on a blog" 
+              }); 
             } } style={{
               border: "0px"
             }}>

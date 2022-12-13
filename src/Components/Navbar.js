@@ -4,7 +4,7 @@ import { FaAngleUp } from 'react-icons/fa';
 import { FaAngleDown } from 'react-icons/fa';
 import { Link, Outlet } from "react-router-dom"
 import Footer from "./Pages/Footer/Footer";
-
+import ReactGA from 'react-ga';
 //  https://api.nasa.gov/planetary/apod?api_key=mrhh2R9IjDc8S1kU8oNN44UoHiqQtXqjkpbIwE5H
 const Navbar = () => {
 
@@ -57,6 +57,7 @@ const Navbar = () => {
 
   const classChange = () => {
     document.querySelector(".navbar-toggler").click();
+    
   }
 
 
@@ -127,7 +128,14 @@ const Navbar = () => {
                     e.target.style.backgroundColor = ""
                   }}
                 >
-                  <Link className="nav-link active" aria-current="page" to = {elem.url}>
+                  <Link className="nav-link active" aria-current="page" to = {elem.url} 
+                  onClick = {()=>{
+                    ReactGA.event({
+                      category:  elem.url,
+                      action:  `Navbar ${elem.navLink} Clicked`
+                    });
+                  }}
+                  >
                      {elem.navLink}
                   </Link>
                 </li>
